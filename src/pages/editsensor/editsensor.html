@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Edit Sensor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <div>
+      <form (ngSubmit)="editSensor()" #sensorForm="ngForm">
+
+        <ion-card *ngIf="isNew" color='secondary'>
+          <ion-card-content>
+            Congratulations your SimpleSensor is registered! Customize your sensor type, name and alerts!
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card color='dark'>
+          <ion-card-content text-center>
+            Select the appropriate sensor type and name for your SimpleSensor.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list>
+          <ion-item color='dark'>
+            <ion-label fixed>Sensor ID</ion-label>
+            <ion-label>{{this.selectedSensorId}}</ion-label>
+          </ion-item>
+
+          <ion-item color='dark'>
+            <ion-label floating>Sensor Type</ion-label>
+            <ion-select name="sensorType" #S [(ngModel)]="sensor.sensorType" (ionChange)="onSensorTypeChange(S.value)" required>
+
+              <ion-option value="Attic">Attic</ion-option>
+              <ion-option value="Barn">Barn</ion-option>
+              <ion-option value="Basement">Basement</ion-option>              
+              <ion-option value="Beverage Fridge">Beverage Fridge</ion-option>
+              <ion-option value="Bird Cage">Bird Cage</ion-option>
+              <ion-option value="Bonsai">Bonsai</ion-option>
+              <ion-option value="Cabinet">Cabinet</ion-option>
+              <ion-option value="Chicken Coop">Chicken Coop</ion-option>
+              <ion-option value="Dairy Cooler">Dairy Cooler</ion-option>
+              <!-- <ion-option value="Dishwasher">Dishwasher</ion-option> -->
+              <ion-option value="Dog House">Dog House</ion-option>
+              <ion-option value="Door">Door</ion-option>
+              <ion-option value="Drawer">Drawer</ion-option>
+              <!-- <ion-option value="Dryer">Dryer</ion-option> -->
+              <ion-option value="Freezer">Freezer</ion-option>
+              <!-- <ion-option value="Furnace">Furnace</ion-option> -->
+              <ion-option value="Garage Door">Garage Door</ion-option>
+              <ion-option value="Garden">Garden</ion-option>              
+              <ion-option value="Generic">Generic</ion-option>
+              <ion-option value="Greenhouse">Greenhouse</ion-option>
+              <ion-option value="Greenhouse Indoor">Greenhouse Indoor</ion-option>
+              <ion-option value="Gun Cabinet">Gun Cabinet</ion-option>
+              <ion-option value="Hot Tub">Hot Tub</ion-option>
+              <ion-option value="Humidity">Humidity</ion-option>
+              <ion-option value="Humidor">Humidor</ion-option>
+              <!-- <ion-option value="Light">Light</ion-option> -->
+              <ion-option value="Liquor Cabinet">Liquor Cabinet</ion-option>
+              <ion-option value="Medicine Cabinet">Medicine Cabinet</ion-option>              
+              <ion-option value="Pantry">Pantry</ion-option>                                          
+              <ion-option value="Pool">Pool</ion-option>                            
+              <ion-option value="Refrigerator">Refrigerator</ion-option>            
+              <ion-option value="Reptile Tank">Reptile Tank</ion-option>
+              <ion-option value="Rodent Cage">Rodent Cage</ion-option>
+              <ion-option value="Room">Room</ion-option>              
+              <ion-option value="Sauna">Sauna</ion-option>                              
+              <ion-option value="Shed">Shed</ion-option>                              
+              <ion-option value="Stairwell">Stairwell</ion-option>                                          
+              <!-- <ion-option value="Sump Pump">Sump Pump</ion-option> -->
+              <ion-option value="Temperature">Temperature</ion-option>
+              <ion-option value="Terrarium">Terrarium</ion-option>
+              <ion-option value="Turtle Tank">Turtle Tank</ion-option>
+              <!-- <ion-option value="Vibration">Vibration</ion-option> -->
+              <!-- <ion-option value="Washer">Washer</ion-option> -->
+              <!-- <ion-option value="Water Heater">Water Heater</ion-option>  -->
+              <ion-option value="Window">Window</ion-option>                                        
+              <ion-option value="Wine Cellar">Wine Cellar</ion-option>                                        
+            </ion-select>
+          </ion-item>   
+
+          <ion-item color='dark'>
+            <ion-label floating>Sensor Name</ion-label>
+            <ion-input type="text" name="name"  [(ngModel)]="sensor.name" required></ion-input>
+          </ion-item>                 
+
+        </ion-list>        
+
+         <ion-row>
+           <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!sensorForm.form.valid">Save Sensor</button>
+           </ion-col>
+         </ion-row>          
+      </form>   
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="!isNew" no-shadow color='dark'>
+  <ion-toolbar position="bottom" color='dark' style="text-align: center">
+    <button ion-button round outline color='secondary' (click)="deleteSensor()" [disabled]="!auth.isUserSignedIn()">Delete Sensor</button>
+  </ion-toolbar>
+</ion-footer>

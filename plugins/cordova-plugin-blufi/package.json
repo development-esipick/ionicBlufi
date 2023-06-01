@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "file:./blufi/cordova-plugin-blufi",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "file:./blufi/cordova-plugin-blufi",
+        "spec": "/Users/joeackert/Desktop/projects/rmss/awsMobile/aws-mobile-ionic-sample/client/blufi/cordova-plugin-blufi",
+        "type": "directory"
+      },
+      "/Users/joeackert/Desktop/projects/rmss/awsMobile/aws-mobile-ionic-sample/client"
+    ]
+  ],
+  "_from": "blufi/cordova-plugin-blufi",
+  "_id": "cordova-plugin-blufi@0.0.1",
+  "_inCache": true,
+  "_location": "/cordova-plugin-blufi",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "file:./blufi/cordova-plugin-blufi",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "file:./blufi/cordova-plugin-blufi",
+    "spec": "/Users/joeackert/Desktop/projects/rmss/awsMobile/aws-mobile-ionic-sample/client/blufi/cordova-plugin-blufi",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "file:blufi/cordova-plugin-blufi",
+  "_shasum": "870fdf0986dbbb4a53d86259601259df0b7fddbb",
+  "_shrinkwrap": null,
+  "_spec": "file:./blufi/cordova-plugin-blufi",
+  "_where": "/Users/joeackert/Desktop/projects/rmss/awsMobile/aws-mobile-ionic-sample/client",
+  "author": {
+    "name": "k1dbl4ck@gmail.com"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/k1dbl4ck/cordova-plugin-blufi/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-blufi",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "A Cordova plugin that enabled communication with Espressif BluFi compatible firmware",
+  "devDependencies": {},
+  "gitHead": "d303aa867c7d49d9b9fc521387533ae310f53ac2",
+  "homepage": "https://gitlab.com/k1dbl4ck/cordova-plugin-blufi#readme",
+  "keywords": [
+    "cordova",
+    "plugin",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "espressif",
+    "gatt",
+    "blufi"
+  ],
+  "license": "Unlicense",
+  "name": "cordova-plugin-blufi",
+  "optionalDependencies": {},
+  "readme": "# Cordova BluFi Plugin\n\n- This plugin implements the [Espressif BluFi API](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/blufi.html) for ESP32 based chipsets with Bluetooth.\n- It provides a secure protocol to pass Wi-Fi configuration and credentials to the ESP32. Using this information ESP32 can then, for example, connect to an AP or establish a SoftAP.\n\n## Supports\n\nAndroid API 23+\niOS 10.2+\n\n## Requirements\n\n- A ESP32 board/device running BluFi compatible firmware\n- Apache Cordova 8.1.2 (cordova-lib@8.1.1) or newer\n- Android SDK (if developing for Android)\n- XCode (if developing for iOS)\n\n## Installation\n\nTo install run the following in your Cordova project directory\n\n```\ncordova plugin add cordova-plugin-blufi --variable USESWIFTLANGUAGEVERSION=4 --save\n```\n\nIf you are using Ionic, remember the `ionic` prefix\n\n```\nionic cordova plugin add cordova-plugin-blufi --variable USESWIFTLANGUAGEVERSION=4\n```\n\n### Notes for iOS:\n\n- You may need to install and configure CocaoPods before you install the plugin - run the following anywhere in terminal:\n\n```\nsudo gem install cocoapods\npod repo update\n```\n\n- Remember to set your Deployment Target to (iOS version) 10.0 or later in XCode\n\n- You may need to you add the following to your iOS app Info.plist file\n\n```\n<key>NSBluetoothPeripheralUsageDescription</key>\n<string>Play with BLE Compatible devices<string>\n```\n\n## Usage\n\n### Overview\n\nOnce installed, the plugin will be available in Javascript on the following namespace:\n\n```js\nwindow.cordova.plugins.blufi;\n```\n\nThe following API calls are available on the above namespace:\n\n| Method     |                                    Description                                    |\n| ---------- | :-------------------------------------------------------------------------------: |\n| search     | Initiates a search for BLE devices and returns an array containing devices found  |\n| connect    |                     Connects to a BluFi compatible BLE device                     |\n| disconnect |                    Disconnects from currently connected device                    |\n| negotiate  |          Negotiates a secure connection with the connected BluFi device           |\n| configure  | Configures the WiFi mode and associated credentials of the connected BluFi device |\n| send       |            Send a string of custom data to the connected BluFi device             |\n| scan       |           Scans for available WiFi networks from connected BluFi device           |\n| version    |           Returns the version as reported by the connected BluFi device           |\n| status     |             Returns the current status of the connected BluFi device              |\n\n### Searching for devices\n\nIf you do not know the name or address of the device you want to connect to, you need to first initiate a search, which scans for all available BLE devices\n\n- The first parameter is a prefix to filter results on before passed back to you (default: \"\")\n- The second parameter is the maximum duration in milliseconds to scan for (default: 5000)\n\n```js\nlet blufi = window.cordova.plugins.blufi;\nblufi.search(\"BLUFI\", 10000, success => {}, error => {});\n```\n\nResponse:\n\n```json\n[\n  { \"name\": \"\", \"address\": \"5B:FD:EC:A7:DE:FC\" },\n  { \"name\": \"BLUFI_DEVICE\", \"address\": \"24:0A:C4:97:12:BE\" }\n]\n```\n\n**_ Note: Some BLE devices will broadcast their name and others won't. _**\n**_ Note: iOS does not expose the MAC address of BLE devices, instead the device UUID is passed as address _**\n\n### Connecting to a device\n\nOnce you know the name or address of the device you want to connect to, you can connect as follows:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.connect(\n  {\n    identifier: \"...\" // name or address as retrieved from search call\n  },\n  response => { ... },\n  error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"connected\": true,\n  \"address\": \"...\",\n  \"error\": \"\",\n  \"message\": \"Connected\"\n}\n```\n\n### Scanning for WiFi networks from connected device\n\nOnce you are connected to the device, you can scan for available WiFi networks as follows:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.scan(\n  response => { ... },\n  error => { ... }\n);\n```\n\nResponse:\n\n```json\n[\n  {\n    \"ssid\": \"...\",\n    \"rssi\": \"...\"\n  }\n]\n```\n\nError:\n\n```json\n[]\n```\n\n### Negotating security with connected device\n\nOnce connected, security can be negotatiated as follows:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.negotiate(\n    response => { ... },\n    error)=> { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"complete\": true,\n  \"error\": \"\",\n  \"message\": \"Security negotiation complete\"\n}\n```\n\nError:\n\n```json\n{\n  \"complete\": false,\n  \"error\": \"...\",\n  \"message\": \"Security negotiation failed\"\n}\n```\n\n### Configuring BluFi\n\nOnce connected, you can configure the device as follows:\n\n- Station mode:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\nblufi.configure(\n  {\n    mode: \"station\",\n    ssid: \"SSID_OF_WIFI_NETWORK\",\n    password: \"PASSWORD_OF_WIFI_NETWORK\"\n  },\n  response => { ... },\n  error => { ... }\n);\n```\n\n- SoftAP mode:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\nblufi.configure(\n  {\n    mode: \"softap\",\n    ssid: \"TEST-SSID\", // The WiFi SSID you would like the device to broadcast\n    security: \"wpa2-psk\", // One of ['open', 'wpa-psk', 'wpa2-psk', 'wpa-wap2-psk']\n    password: \"abcd1234\" // A WiFi password (if security mode is not set as \"open\") clients can use to connect\n  },\n  response => { ... },\n  error => { ... }\n);\n```\n\n- Combined Station/SoftAP mode:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\nblufi.configure(\n  {\n    mode: \"stasoftap\",\n    station: {\n      ssid: \"SSID_OF_WIFI_NETWORK\",\n      password: \"PASSWORD_OF_WIFI_NETWORK\"\n    },\n    softap: {\n      ssid: \"TEST-SSID\",\n      security: \"wpa2-psk\",\n      password: \"abcd1234\"\n    }\n  },\n  response => { ... },\n  error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"complete\": true,\n  \"error\": \"\",\n  \"message\": \"Configuration complete\"\n}\n```\n\nError:\n\n```json\n{\n  \"complete\": false,\n  \"error\": \"...\",\n  \"message\": \"Configuration failed\"\n}\n```\n\n### Getting device status\n\nOnce connected, you can request the current status of the device:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.status(\n    response => { ... },\n    error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"opMode\": \"Station || SoftAP || StaSoftAP\",\n  \"stationState\": \"connected || disconnected\",\n  \"softAPState\": \"NUMBER_OF_DEVICES_CONNECTED\",\n  \"softAPSSID\": \"SSID_OF_SOFT_AP\",\n  \"error\": \"\",\n  \"message\": \"Get status successful\"\n}\n```\n\nError:\n\n```json\n{\n  \"opMode\": \"Station || SoftAP || StaSoftAP\",\n  \"stationState\": \"connected || disconnected\",\n  \"softAPState\": \"NUMBER_OF_DEVICES_CONNECTED\",\n  \"softAPSSID\": \"SSID_OF_SOFT_AP\",\n  \"error\": \"...\",\n  \"message\": \"Get status failed\"\n}\n```\n\n### Getting device version\n\nOnce connected, you can request the current version of the device:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.version(\n    response => { ... },\n    error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"version\": \"...\",\n  \"error\": \"\",\n  \"message\": \"Get version successful\"\n}\n```\n\nError:\n\n```json\n{\n  \"version\": \"\",\n  \"error\": \"...\",\n  \"message\": \"Get version failed\"\n}\n```\n\n### Sending custom data to the device\n\nOnce connected, you can send custom data to the device:\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.send(\n    \"some string of data - possibly stringified JSON\",\n    success => { ... },\n    error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"complete\": true,\n  \"error\": \"\",\n  \"message\": \"Send custom data complete\"\n}\n```\n\nError:\n\n```json\n{\n  \"complete\": false,\n  \"error\": \"...\",\n  \"message\": \"Send custom data failed\"\n}\n```\n\n### Disconnecting from currently connected device\n\nOnce you are done setting up the device, you can disconnect the Bluetooth connection\n\n```js\nlet blufi = window.cordova.plugins.blufi;\n\nblufi.disconnect(\n    success => { ... },\n    error => { ... }\n);\n```\n\nResponse:\n\n```json\n{\n  \"connected\": false,\n  \"address\": \"...\",\n  \"error\": \"\",\n  \"message\": \"Device disconnected\"\n}\n```\n\nError:\n\n```json\n{\n  \"connected\": false,\n  \"address\": \"\",\n  \"error\": \"...\",\n  \"message\": \"Cannot disconnect\"\n}\n```\n\n## References\n\n[Espressif BluFi API](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/blufi.html)\n[BluFi API for Android](https://github.com/EspressifApp/EspBlufiForAndroid)\n\n## Development\n\n### Building the Espressif BluFi libraries\n\n```\ncd apptools\ngradle build\ncp build/outputs/aar/apptools-release.aar **/cordova-plugin-blufi/libs/android\n```\n\n## More Info\n\nFor more information on setting up Cordova see [the documentation](http://cordova.apache.org/docs/en/latest/guide/cli/index.html)\nFor more info on plugins see the [Plugin Development Guide](http://cordova.apache.org/docs/en/latest/guide/hybrid/plugins/index.html)\n\n```\n\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/k1dbl4ck/cordova-plugin-blufi.git"
+  },
+  "version": "0.0.1"
+}

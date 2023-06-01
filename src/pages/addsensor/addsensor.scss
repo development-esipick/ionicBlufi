@@ -1,0 +1,26 @@
+page-addsensor {
+
+	.content-home {
+    	background-color: #333;
+    	color: #FFFFFF;
+
+    	.ion-list {
+    		background-color: #333;
+
+    		.ion-item {
+    			background-color: #333; 
+    		}
+    	}
+    }
+
+    .black-background {
+    	background-color: #333;
+    }
+
+    ion-icon {
+        font-size: 256px;
+    }    
+    small-icon {
+        font-size: 32px;
+    }
+}

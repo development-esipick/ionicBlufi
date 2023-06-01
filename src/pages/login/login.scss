@@ -1,0 +1,32 @@
+page-login {
+
+  .content-home {
+    background-color: #333;
+
+    .ion-card {
+      position: relative;
+      text-align: left;
+      font-size: 36px;
+      color: #FFFFFF;
+      background-color: #333;
+      background-image: "assets/img/logo-light.png";
+    }
+
+    .ion-row {
+      background-color: #333;
+
+      .ion-col {
+        font-size: 36px;
+      }      
+    }
+
+    .ion-list {
+    	background-color: #333;
+    	
+    	.ion-item {
+    		background-color: #333;
+    	}
+    }    
+  
+  }
+}

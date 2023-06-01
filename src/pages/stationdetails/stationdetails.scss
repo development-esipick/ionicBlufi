@@ -1,0 +1,60 @@
+page-stationdetails {
+
+  .heading2 {
+    color: #ffffff;
+  }
+  
+  .item-md {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .item-ios {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .grid-col {
+    font-size: 0.8em;
+  }  
+
+  .grid-col-warn {
+    font-size: 0.8em;
+    color: #FFFF00;
+  }
+
+  .danger-text {
+    color: color($colors, danger)
+  }
+
+  .ok-text {
+    color: color($colors, primary)
+  }
+
+  .card-background-page {
+    background-color: #333;
+
+    ion-card {
+      background-color: #333;
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }  
+  }
+}

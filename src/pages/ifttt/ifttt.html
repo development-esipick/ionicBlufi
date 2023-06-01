@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor IFTTT
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding>
+  <h1 text-center class="xxl soft"><ion-icon name="globe"></ion-icon></h1>
+  <h3 text-center class="soft">SimpleSensor IFTTT</h3>      
+  <ion-card text-center color='dark'>
+    <ion-card-content class="black-background">
+      IFTTT allows you to integrate your connected devices from different manufacturers. For example, you can use IFTTT to turn lights on when your SimpleSensor door opens. Another example might be to call your phone if SimpleSensor detects a flood. Go to the IFTTT site below to see more possibilities.
+    </ion-card-content>
+  </ion-card>      
+
+   <ion-row>
+     <ion-col width-100 style="text-align: center">
+      <button ion-button round outline color='secondary' (click)="goIFTTT()">SimpleSensor IFTTT</button>
+     </ion-col>
+   </ion-row>    
+</ion-content>

@@ -1,0 +1,259 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear *ngIf="auth.isUserSignedIn()" (click)="openModal()"  [color]="userColor">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding>
+
+  <div [ngSwitch]="page">
+    <div *ngSwitchCase="'login'">
+      <form (ngSubmit)="signin()" #signinForm="ngForm">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Login to your existing SimpleSensor account.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list inset>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Username</ion-label>
+            <ion-input type="text" name="username" required [(ngModel)]="credentials.username" #username="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Password</ion-label>
+            <ion-input type="password" name="password" required [(ngModel)]="credentials.password" #password="ngModel"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!signinForm.form.valid">Login</button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showRegistration()" small>Register a New Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showConfirmation()" small>Confirm Registration</button>
+        </ion-col>
+      </ion-row>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showForgotPassword()" small>Forgot Password</button>
+        </ion-col>
+      </ion-row>      
+    </div>
+
+    <div class="container" *ngSwitchCase="'register'">
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Register for a SimpleSensor account.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list inset>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Username</ion-label>
+            <ion-input type="text" name="username" required [(ngModel)]="credentials.username" #username="ngModel"></ion-input>
+          </ion-item>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Email</ion-label>
+            <ion-input type="email" name="email" required [(ngModel)]="credentials.email" #email="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Password</ion-label>
+            <ion-input type="password" name="password" required [(ngModel)]="credentials.password" #password="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item color='dark'>            
+            <ion-label small>I agree to the Terms & Conditions</ion-label>
+            <ion-checkbox required align-left></ion-checkbox>
+          </ion-item>          
+
+          <ion-item color='dark' button>
+            <ion-label color='secondary' (click)="goTaC()" style="text-align: right" small align-right>View Terms & Conditions</ion-label>
+          </ion-item>
+
+        </ion-list>
+        <ion-row>
+          <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!registerForm.form.valid">Register</button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showLogin()" small>Login to Existing Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showConfirmation()" small>Confirm Registration</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="container" *ngSwitchCase="'confirm'">
+      <form (ngSubmit)="confirm()" #confirmationForm="ngForm">
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Please confirm your account by entering the confifmation code sent to your email.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list inset>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Username</ion-label>
+            <ion-input type="text" name="username" required [(ngModel)]="credentials.username" #username="ngModel"></ion-input>
+          </ion-item>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Confirmation Code</ion-label>
+            <ion-input type="text" name="confcode" required [(ngModel)]="credentials.confcode" #username="ngModel"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!confirmationForm.form.valid">Confirm Registration</button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showLogin()" small>Login to Existing Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showRegistration()" small>Register a New Account</button>
+        </ion-col>
+      </ion-row>      
+    </div>
+
+    <div class="container" *ngSwitchCase="'forgotPassword'">
+      <form (ngSubmit)="forgotPassword()" #forgotPasswordForm="ngForm">
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Enter your username to get a verification code sent to your email so you can reset your password.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list inset>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Username</ion-label>
+            <ion-input type="text" name="username" required [(ngModel)]="credentials.username" #username="ngModel"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!forgotPasswordForm.form.valid">Send Forgot Password Code</button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showLogin()" small>Login to Existing Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showRegistration()" small>Register a New Account</button>
+        </ion-col>
+      </ion-row>      
+    </div>    
+
+    <div class="container" *ngSwitchCase="'resetPassword'">
+      <form (ngSubmit)="resetPassword()" #resetPasswordForm="ngForm">
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Enter the confirmation code sent to your email, then enter your new password.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list inset>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Username</ion-label>
+            <ion-input type="text" name="username" required [(ngModel)]="credentials.username" #username="ngModel"></ion-input>
+          </ion-item>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>Confirmation Code</ion-label>
+            <ion-input type="text" name="confcode" required [(ngModel)]="credentials.confcode" #username="ngModel"></ion-input>
+          </ion-item>
+          <ion-item color='dark'>
+            <ion-label floating color='light'>New Password</ion-label>
+            <ion-input type="password" name="password" required [(ngModel)]="credentials.password" #password="ngModel"></ion-input>
+          </ion-item>          
+        </ion-list>
+        <ion-row>
+          <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!resetPasswordForm.form.valid">Reset Password</button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showLogin()" small>Login to Existing Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button round outline color='secondary' (click)="showRegistration()" small>Register a New Account</button>
+        </ion-col>
+      </ion-row>      
+    </div>    
+  </div>
+  <ion-buttons nopadding end>
+    <button ion-button icon-only clear (click)="openHelpVideo()"  color="white">
+      <ion-icon name="help"></ion-icon>
+    </button>    
+  </ion-buttons>   
+  <div *ngIf="showHelpVideo">
+    <iframe #iframeVideo width="100%" height="265" [src]="trustedHelpVideoUrl ? trustedHelpVideoUrl : null" (load)="trustedHelpVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+  </div> 
+</ion-content>

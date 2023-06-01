@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Add Location</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <form (ngSubmit)="addStation()" #stationForm="ngForm">
+        
+    <ion-card *ngIf="message" color='secondary'>
+      <ion-card-content>
+        {{message}}
+      </ion-card-content>
+    </ion-card>
+    <ion-card text-center>
+      <ion-card-content class="black-background">
+        Locations are a good way to organize your sensors. Use them at home, the office or wherever you find them useful!
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+
+      <ion-item color='dark'>
+        <ion-label floating>Location Name</ion-label>
+        <ion-input type="text" name="name"  [(ngModel)]="station.name" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="row">
+      <div class="col text-left" style="text-align:left;">
+        <button ion-button round outline color='primary' (click)="goToHome()">Back</button>
+      </div>
+      <div class="col text-right" style="text-align:right;">
+        <button ion-button round outline color='secondary' type="submit" [disabled]="!stationForm.form.valid">Add Location</button>
+      </div>            
+    </div>          
+</form>
+</ion-content>

@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Edit Alerts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <div>    
+      <ion-card text-center>
+        <ion-card-content class="black-background">
+          Set alert notifications for your {{selectedSensorName}} SimpleSensor.
+        </ion-card-content>
+      </ion-card>    
+      <ion-list>
+        <ion-item-group *ngIf="(selectedSensorType == 'Garage Door' ||
+                                selectedSensorType == 'Beverage Fridge' ||
+                                selectedSensorType == 'Cabinet' ||
+                                selectedSensorType == 'Dairy Cooler' ||
+                                selectedSensorType == 'Door' ||
+                                selectedSensorType == 'Drawer' ||
+                                selectedSensorType == 'Freezer' ||
+                                selectedSensorType == 'Gun Cabinet' ||
+                                selectedSensorType == 'Liquor Cabinet' ||
+                                selectedSensorType == 'Medicine Cabinet' ||
+                                selectedSensorType == 'Pantry' ||
+                                selectedSensorType == 'Refrigerator' ||
+                                selectedSensorType == 'Window')">      
+          <ion-item-divider color="dark">Open/Close Behavior</ion-item-divider>
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Notify on {{selectedSensorName}} Open/Close</ion-label>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.notifyOnEveryEvent" [ngModelOptions]="{standalone: true}"></ion-toggle>              
+          </ion-item>
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Notify if {{selectedSensorName}} Open for Longer Than</ion-label>
+            <ion-select class="small-label-font" [(ngModel)]="sensoralert.notifyOnOpenMinutes">
+              <ion-option value="0">Off</ion-option>
+              <ion-option value="5">5 Minutes</ion-option>
+              <ion-option value="10">10 Minutes</ion-option>
+              <ion-option value="15">15 Minutes</ion-option>
+              <ion-option value="20">20 Minutes</ion-option>
+              <ion-option value="25">25 Minutes</ion-option>
+              <ion-option value="30">30 Minutes</ion-option>
+              <ion-option value="35">35 Minutes</ion-option>
+              <ion-option value="40">40 Minutes</ion-option>
+              <ion-option value="45">45 Minutes</ion-option>
+              <ion-option value="50">50 Minutes</ion-option>
+              <ion-option value="55">55 Minutes</ion-option>
+              <ion-option value="60">60 Minutes</ion-option>
+            </ion-select>
+          </ion-item>     
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Buzzer Sound on {{selectedSensorName}} Open/Close</ion-label>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.buzzerArmedDoor" [ngModelOptions]="{standalone: true}"></ion-toggle>              
+          </ion-item>                
+        </ion-item-group>   
+        <ion-item-divider color='dark'>
+          <ion-label>
+            
+          </ion-label>
+        </ion-item-divider>         
+        <ion-item-group>
+          <ion-item-divider color="dark">Water Detection Behavior</ion-item-divider>                  
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Notify on Water Detection</ion-label>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.notifyOnWaterDetection" [ngModelOptions]="{standalone: true}"></ion-toggle>              
+          </ion-item>          
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Buzzer Sound on Water Detection</ion-label>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.buzzerArmedWater" [ngModelOptions]="{standalone: true}"></ion-toggle>              
+          </ion-item>          
+        </ion-item-group>     
+        <ion-item-divider color='dark'>
+          <ion-label>
+            
+          </ion-label>
+        </ion-item-divider>                                 
+        <ion-item-group>
+          <ion-item-divider color="dark">Temperature Range Notification</ion-item-divider>        
+          <ion-item color='dark'>
+            <ion-range [(ngModel)]="temperatureAlertRange" dualKnobs="true" min="-40" max="140" pin="true">
+              <ion-icon color="temp" small range-left name="thermometer"></ion-icon>
+              <ion-icon color="temp" range-right name="thermometer"></ion-icon>          
+            </ion-range>      
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.temperatureAlertOn" [ngModelOptions]="{standalone: true}"></ion-toggle>              
+          </ion-item>
+        </ion-item-group>
+        <ion-item-group>
+          <ion-item-divider color="dark">Humidity Range Notification</ion-item-divider>        
+          <ion-item color='dark'>
+            <ion-range [(ngModel)]="humidityAlertRange" dualKnobs="true" min="0" max="100" pin="true">
+              <ion-icon color="humidity" small range-left name="water"></ion-icon>
+              <ion-icon color="humidity" range-right name="water"></ion-icon>          
+            </ion-range>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.humidityAlertOn" [ngModelOptions]="{standalone: true}"></ion-toggle>
+          </ion-item>          
+        </ion-item-group>
+        <!-- 
+        <ion-item-group>
+          <ion-item-divider color="dark">Brightness</ion-item-divider>        
+          <ion-item color='dark'>
+            <ion-range [(ngModel)]="brightnessAlertRange" dualKnobs="true" min="0" max="1000" pin="true">
+              <ion-icon color="lux" small range-left name="sunny"></ion-icon>
+              <ion-icon color="lux" range-right name="sunny"></ion-icon>          
+            </ion-range>
+            <ion-toggle color='secondary' [(ngModel)]="sensoralert.luxAlertOn" [ngModelOptions]="{standalone: true}"></ion-toggle>                    
+          </ion-item>          
+        </ion-item-group>
+      -->
+        <ion-item-divider color='dark'>
+          <ion-label>
+            
+          </ion-label>
+        </ion-item-divider>      
+        <ion-item-group>
+          <ion-item-divider color="dark">Battery Saver</ion-item-divider>                  
+          <ion-item color='dark'>
+            <ion-label class="small-label-font">Sensor Interval (Longer = Longer Battery Life)</ion-label>
+            <ion-select class="small-label-font" [(ngModel)]="sensoralert.sensorInterval">
+              <ion-option value="1">1 Minute</ion-option>
+              <ion-option value="5">5 Minutes</ion-option>
+              <ion-option value="10">10 Minutes</ion-option>
+              <ion-option value="15">15 Minutes</ion-option>
+              <ion-option value="20">20 Minutes</ion-option>
+              <ion-option value="25">25 Minutes</ion-option>
+              <ion-option value="30">30 Minutes</ion-option>
+              <ion-option value="35">35 Minutes</ion-option>
+              <ion-option value="40">40 Minutes</ion-option>
+              <ion-option value="45">45 Minutes</ion-option>
+              <ion-option value="50">50 Minutes</ion-option>
+              <ion-option value="55">55 Minutes</ion-option>
+              <ion-option value="60">60 Minutes</ion-option>
+              <ion-option value="90">1.5 Hours</ion-option>
+              <ion-option value="120">2 Hours</ion-option>
+              <ion-option value="150">2.5 Hours</ion-option>
+              <ion-option value="180">3 Hours</ion-option>
+              <ion-option value="240">4 Hours</ion-option>
+              <ion-option value="480">8 Hours</ion-option>
+            </ion-select>
+          </ion-item>          
+        </ion-item-group>
+
+      </ion-list>
+    <ion-card text-center>
+      <ion-card-content class="black-background">
+        ** Press the test button on your SimpleSensor after saving these changes for buzzer and interval changes to take effect immediately, otherwise they will automatically take effect within 24 hours.
+      </ion-card-content>
+    </ion-card> 
+   <ion-row>
+     <ion-col width-100 style="text-align: center">
+      <button ion-button round outline color='secondary' (click)="editSensorAlert()" [disabled]="!auth.isUserSignedIn()">Save Sensor Alerts</button>
+     </ion-col>
+   </ion-row>   
+
+  </div>
+
+</ion-content>

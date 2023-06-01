@@ -1,0 +1,86 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.+",
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-ble-central": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-blufi": {
+      "USESWIFTLANGUAGEVERSION": "4",
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-purchase": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "phonegap-nfc": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "phonegap-plugin-push": {
+      "ANDROID_SUPPORT_V13_VERSION": "27.+",
+      "FCM_VERSION": "11.6.2",
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "wifiwizard2": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    },
+    "phonegap-plugin-multidex": {
+      "PACKAGE_NAME": "io.simplesensor.app"
+    }
+  }
+}

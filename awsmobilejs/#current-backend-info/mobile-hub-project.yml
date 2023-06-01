@@ -1,0 +1,886 @@
+--- !com.amazonaws.mobilehub.v0.Project
+apps: 
+  react-native: !com.amazonaws.mobilehub.v0.AppDO {}
+features: 
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic
+    components: 
+      rawsensordata2CRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: rawsensordata2CRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /rawsensordata2: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/rawsensordata2-20190402113038.zip
+            description: "Handler for calls to resource path : /rawsensordata2/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: WQt/3FXRTuf+NrC9XEtmxryehgCgdDhxTtvxuqHzVBw=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:08.518+0000"
+            name: rawsensordata2
+            runtime: nodejs8.10
+            timeout: "3"
+            version: NC0jDjA4ESCaToArRdeGnbQANtl9jj3D
+          "/rawsensordata2/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/rawsensordata2-20190402113038.zip
+            description: "Handler for calls to resource path : /rawsensordata2/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: WQt/3FXRTuf+NrC9XEtmxryehgCgdDhxTtvxuqHzVBw=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:08.518+0000"
+            name: rawsensordata2
+            runtime: nodejs8.10
+            timeout: "3"
+            version: qKPdZYWqyy0HTfLDkbwxm0V0McM3V0_u
+      sensoralertCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensoralertCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensoralert: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensoralert-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoralert/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: XwQGT6zHJjkVaEKkJivMgx4ahiy457IlXX94um2y4+g=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.170+0000"
+            name: sensoralert
+            runtime: nodejs8.10
+            timeout: "3"
+            version: 4T7dUgwo97A5pIL28a1osUS.pERcDlyP
+          "/sensoralert/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensoralert-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoralert/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: XwQGT6zHJjkVaEKkJivMgx4ahiy457IlXX94um2y4+g=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.170+0000"
+            name: sensoralert
+            runtime: nodejs8.10
+            timeout: "3"
+            version: T0RJUgkIN4F65ALo8jXs6vzqrcLtZFMZ
+      sensoreventsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensoreventsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensorevents: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorevents-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorevents/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: Z6qs2Hbgb9Vq57FpyolTnhp8qByErJw1Mbueg7scdwc=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:05.308+0000"
+            name: sensorevents
+            runtime: nodejs8.10
+            timeout: "63"
+            version: qWBF4C_PkHx4vBMGFrcZSP9aprq8vfzK
+          "/sensorevents/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorevents-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorevents/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: Z6qs2Hbgb9Vq57FpyolTnhp8qByErJw1Mbueg7scdwc=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:05.308+0000"
+            name: sensorevents
+            runtime: nodejs8.10
+            timeout: "63"
+            version: 8cxdiZvGG0p1SlM3gJiYtmll2t4zWUCg
+      sensorfifteenminuterollupsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensorfifteenminuterollupsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensorfifteenminuterollups: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/fifteenminuterollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorfifteenminuterollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: 62761qlScZC3qAYYq9zAHsCb3c4+75tFp4oel1oPT9w=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:01.821+0000"
+            name: fifteenminuterollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: EYQ4._Y_GVwcp59AIg8bPVX9uIjJNF1R
+          "/sensorfifteenminuterollups/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/fifteenminuterollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorfifteenminuterollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: 62761qlScZC3qAYYq9zAHsCb3c4+75tFp4oel1oPT9w=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:01.821+0000"
+            name: fifteenminuterollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: 9WiEUo7Gt9izdl9RII79uRQc8_XOnv3C
+      sensoronehourrollupsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensoronehourrollupsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensoronehourrollups: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensoronehourrollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoronehourrollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: YF+jOmQDY/L76+nbYjiD9XEAqy60q3yfX9txAcakCZQ=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:03.975+0000"
+            name: sensoronehourrollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: wMj6aG7a8qeEKipSxN8TU7gxeL.nLXK2
+          "/sensoronehourrollups/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensoronehourrollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoronehourrollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: YF+jOmQDY/L76+nbYjiD9XEAqy60q3yfX9txAcakCZQ=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:03.975+0000"
+            name: sensoronehourrollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: ktmp5GGWfOFth2VnGoQ6S7DsVP5KIWyH
+      sensoroneminuterollupsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensoroneminuterollupsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensoroneminuterollups: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/nsoroneminuterollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoroneminuterollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: Y6GV2GH3S8evluQpP0Bz5ZoyRvjpYUtjM1hRKep/xVY=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:18.858+0000"
+            name: nsoroneminuterollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: qtwothZ5HTUzks0dlge4gnBSXDZDyR1c
+          "/sensoroneminuterollups/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/nsoroneminuterollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensoroneminuterollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: Y6GV2GH3S8evluQpP0Bz5ZoyRvjpYUtjM1hRKep/xVY=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:18.858+0000"
+            name: nsoroneminuterollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: uzxi83Tc67O6prjtwIhwbPVNHp2cQeuw
+      sensorreadingsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensorreadingsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensorreadings: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorreadings-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorreadings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: IXYcbQthNOqqsk1Yb9hbcck43MOMK0c3sAm5ZHgXAqc=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.310+0000"
+            name: sensorreadings
+            runtime: nodejs8.10
+            timeout: "63"
+            version: z939LhAJDycFAlBNEu_gwfRyeMgecAzn
+          "/sensorreadings/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorreadings-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorreadings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: IXYcbQthNOqqsk1Yb9hbcck43MOMK0c3sAm5ZHgXAqc=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.310+0000"
+            name: sensorreadings
+            runtime: nodejs8.10
+            timeout: "63"
+            version: ._9tdaF_NOQR5rEpYPgX7_NDRtWRdU1f
+      sensorsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensorsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensors: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensors-20190402113038.zip
+            description: "Handler for calls to resource path : /sensors/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: XqSd2VyGLMQVIxBXqJBUpVRIWe02lUSwGOVdvMTkBQA=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.789+0000"
+            name: sensors
+            runtime: nodejs8.10
+            timeout: "3"
+            version: dU4jN_JLfyKtoWxlxmYvvxtOQ8ecpAvc
+          "/sensors/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensors-20190402113038.zip
+            description: "Handler for calls to resource path : /sensors/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: XqSd2VyGLMQVIxBXqJBUpVRIWe02lUSwGOVdvMTkBQA=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:10.789+0000"
+            name: sensors
+            runtime: nodejs8.10
+            timeout: "3"
+            version: euLJzn32vk8HaQ6TBY6Kb9eSNmOmHFMT
+      sensorsettingsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensorsettingsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensorsettings: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorsettings-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorsettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: eDgQcGAS1NsicmFVeUpljfUFdOAqmDDMjDF4Uxl77YY=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:05.240+0000"
+            name: sensorsettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: G66mty.d10EjyURVYbWuxsj5samwQdeT
+          "/sensorsettings/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sensorsettings-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorsettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: eDgQcGAS1NsicmFVeUpljfUFdOAqmDDMjDF4Uxl77YY=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:05.240+0000"
+            name: sensorsettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: h0Ey8Uly3T9EtCmiak8yPlA02tNq8O77
+      sensorthreehourrollupsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sensorthreehourrollupsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sensorthreehourrollups: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/nsorthreehourrollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorthreehourrollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: V78axICUOOniyKx2FwdBbcdJxPGwBRY84UpQlqD4Upk=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:11.944+0000"
+            name: nsorthreehourrollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: 6Rje2jcAccQHaPlCzq3OntXZQPszs02W
+          "/sensorthreehourrollups/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/nsorthreehourrollups-20190402113038.zip
+            description: "Handler for calls to resource path : /sensorthreehourrollups/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: V78axICUOOniyKx2FwdBbcdJxPGwBRY84UpQlqD4Upk=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:11.944+0000"
+            name: nsorthreehourrollups
+            runtime: nodejs8.10
+            timeout: "3"
+            version: yyMNh5HOwmhVwNi_Oend1.hnw6ucXVsP
+      sharedstationsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: sharedstationsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /sharedstations: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sharedstations-20190402113038.zip
+            description: "Handler for calls to resource path : /sharedstations/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: 3KUeI+hlnwJz9RD9K8u5clilNMzGlhxNRGnXn58F5UQ=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:17.450+0000"
+            name: sharedstations
+            runtime: nodejs8.10
+            timeout: "3"
+            version: CBglklU2mKqhZqyqCO6CZfKDVI3tW36_
+          "/sharedstations/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/sharedstations-20190402113038.zip
+            description: "Handler for calls to resource path : /sharedstations/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: 3KUeI+hlnwJz9RD9K8u5clilNMzGlhxNRGnXn58F5UQ=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:17.450+0000"
+            name: sharedstations
+            runtime: nodejs8.10
+            timeout: "3"
+            version: XpgskeCoGcax1Z3InG3I8PpuKpC7ptt_
+      stationsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: stationsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /stations: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/stations-20190402113038.zip
+            description: "Handler for calls to resource path : /stations/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: kShnWn8uC9KlspvTNpfDXOItZXEqMNIJ6+McYVlcqMU=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:07.900+0000"
+            name: stations
+            runtime: nodejs8.10
+            timeout: "3"
+            version: eNuHIghm6Xdghh4xdUV1KoBrQE7gEod7
+          "/stations/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/stations-20190402113038.zip
+            description: "Handler for calls to resource path : /stations/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: kShnWn8uC9KlspvTNpfDXOItZXEqMNIJ6+McYVlcqMU=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:07.900+0000"
+            name: stations
+            runtime: nodejs8.10
+            timeout: "3"
+            version: Xpler096dVe3zQhKbcoVNUoHr7JY7GSU
+      stationsettingsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: stationsettingsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /stationsettings: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/stationsettings-20190402113038.zip
+            description: "Handler for calls to resource path : /stationsettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: fq9T47EY0tGfZ3wHrGroIs3S5n4dlmuPkdiZET7Bazc=
+            memorySize: "128"
+            modified: "2019-04-04T15:36:19.441+0000"
+            name: stationsettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: ZBxdvAE1tFgisvZm4LPHFa1MZWswCMYq
+          "/stationsettings/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/stationsettings-20190402113038.zip
+            description: "Handler for calls to resource path : /stationsettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: fq9T47EY0tGfZ3wHrGroIs3S5n4dlmuPkdiZET7Bazc=
+            memorySize: "128"
+            modified: "2019-04-04T15:36:19.441+0000"
+            name: stationsettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: mMFadqCDaOva6n02xifQ9Epi82nqSZf3
+      usersettingsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: usersettingsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /usersettings: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/usersettings-20190402113038.zip
+            description: "Handler for calls to resource path : /usersettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: LkGkS8ha3+Fz3pRti6ShLCSorwW5D52+iEWWmluoxaw=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:03.055+0000"
+            name: usersettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: 0DG9vK9rQDGlRvNPhCUIDL8MZsJNKp38
+          "/usersettings/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/usersettings-20190402113038.zip
+            description: "Handler for calls to resource path : /usersettings/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: LkGkS8ha3+Fz3pRti6ShLCSorwW5D52+iEWWmluoxaw=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:03.055+0000"
+            name: usersettings
+            runtime: nodejs8.10
+            timeout: "3"
+            version: FyWLPeTaCzjofgsDBabeFALOLVCEl5vR
+      usersnsconfigsCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: usersnsconfigsCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths: 
+          /usersnsconfigs: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/usersnsconfigs-20190402113038.zip
+            description: "Handler for calls to resource path : /usersnsconfigs/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: ljFCNV3cPiJvh6lI82Jd7jl2URHiy5ew3T8YYlORL4o=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:20.417+0000"
+            name: usersnsconfigs
+            runtime: nodejs8.10
+            timeout: "3"
+            version: cie4jWhBQso9GbsyqX8qQK7STD2QL9bv
+          "/usersnsconfigs/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/usersnsconfigs-20190402113038.zip
+            description: "Handler for calls to resource path : /usersnsconfigs/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: ljFCNV3cPiJvh6lI82Jd7jl2URHiy5ew3T8YYlORL4o=
+            memorySize: "128"
+            modified: "2019-04-02T17:37:20.417+0000"
+            name: usersnsconfigs
+            runtime: nodejs8.10
+            timeout: "3"
+            version: ndRf_wFWO7Pzagkg9j3btLZ5H2GTusQN
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery
+    attributes: 
+      enabled: true
+      visibility: public-global
+    components: 
+      release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database
+    components: 
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase
+        tables: 
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              batteryLevel: N
+              createdOn: S
+              dataMap: M
+              lastHumidity: N
+              lastLux: N
+              lastMagnetox: N
+              lastMagnetoy: N
+              lastMagnetoz: N
+              lastTemperature: N
+              name: S
+              registeredOn: S
+              sensorId: S
+              sensorStatus: S
+              sensorType: S
+              stationId: S
+              updatedOn: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: sensorId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sensors
+            tablePrivacy: private
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              avgAccelx: N
+              avgAccely: N
+              avgAccelz: N
+              avgHumidity: N
+              avgLux: N
+              avgTemp: N
+              maxAccelx: N
+              maxAccely: N
+              maxAccelz: N
+              maxHumidity: N
+              maxLux: N
+              maxTemp: N
+              minAccelx: N
+              minAccely: N
+              minAccelz: N
+              minHumidity: N
+              minLux: N
+              minTemp: N
+              sensorDataCount: N
+              sensorId: S
+              sensorOneMinuteRollupId: N
+              stdevAccelx: N
+              stdevAccely: N
+              stdevAccelz: N
+              stdevHumidity: N
+              stdevLux: N
+              stdevTemp: N
+              ttl: N
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: sensorOneMinuteRollupId
+            rangeKeyType: N
+            tableName: ___DYNAMIC_PREFIX___-sensoroneminuterollups
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              avgAccelx: N
+              avgAccely: N
+              avgAccelz: N
+              avgHumidity: N
+              avgLux: N
+              avgTemp: N
+              maxAccelx: N
+              maxAccely: N
+              maxAccelz: N
+              maxHumidity: N
+              maxLux: N
+              maxTemp: N
+              minAccelx: N
+              minAccely: N
+              minAccelz: N
+              minHumidity: N
+              minLux: N
+              minTemp: N
+              sensorDataCount: N
+              sensorId: S
+              sensorThreeHourRollupId: N
+              stdevAccelx: N
+              stdevAccely: N
+              stdevAccelz: N
+              stdevHumidity: N
+              stdevLux: N
+              stdevTemp: N
+              ttl: N
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: sensorThreeHourRollupId
+            rangeKeyType: N
+            tableName: ___DYNAMIC_PREFIX___-sensorthreehourrollups
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              accelx: N
+              accely: N
+              accelz: N
+              battery: N
+              dataMap: M
+              humidity: N
+              lux: N
+              magnetox: N
+              magnetoy: N
+              magnetoz: N
+              readingDateTime: S
+              sensorId: S
+              sensorReadingId: S
+              stationIP: S
+              stationId: S
+              temp: N
+              ttl: N
+              userId: S
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: sensorReadingId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sensorreadings
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              avgAccelx: N
+              avgAccely: N
+              avgAccelz: N
+              avgHumidity: N
+              avgLux: N
+              avgTemp: N
+              maxAccelx: N
+              maxAccely: N
+              maxAccelz: N
+              maxHumidity: N
+              maxLux: N
+              maxTemp: N
+              minAccelx: N
+              minAccely: N
+              minAccelz: N
+              minHumidity: N
+              minLux: N
+              minTemp: N
+              sensorDataCount: N
+              sensorFifteenMinuteRollupId: N
+              sensorId: S
+              stdevAccelx: N
+              stdevAccely: N
+              stdevAccelz: N
+              stdevHumidity: N
+              stdevLux: N
+              stdevTemp: N
+              ttl: N
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: sensorFifteenMinuteRollupId
+            rangeKeyType: N
+            tableName: ___DYNAMIC_PREFIX___-sensorfifteenminuterollups
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              sensorId: S
+              settings: M
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: sensorId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sensorsettings
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              settings: M
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-usersettings
+            tablePrivacy: private
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              createdOn: S
+              ownerEmail: S
+              ownerId: S
+              sharedStationId: S
+              shareeEmail: S
+              shareeId: S
+              stationId: S
+              stationName: S
+              updatedOn: S
+            hashKeyName: stationId
+            hashKeyType: S
+            rangeKeyName: sharedStationId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sharedstations
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              data: S
+              sensorId: S
+              timestamp: S
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-rawsensordata2
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              settings: M
+              stationId: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: stationId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-stationsettings
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              activationCode: S
+              createdOn: S
+              description: S
+              name: S
+              numSensors: N
+              registeredOn: S
+              stationId: S
+              type: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: stationId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-stations
+            tablePrivacy: private
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              accelAlertOn: BOOL
+              accelxMax: N
+              accelxMin: N
+              accelyMax: N
+              accelyMin: N
+              accelzMax: N
+              accelzMin: N
+              createdOn: S
+              gyroAlertOn: BOOL
+              gyroxMax: N
+              gyroxMin: N
+              gyroyMax: N
+              gyroyMin: N
+              gyrozMax: N
+              gyrozMin: N
+              humidityAlertDate: S
+              humidityAlertMax: N
+              humidityAlertMin: N
+              humidityAlertOn: BOOL
+              humidityAlertState: S
+              luxAlertDate: S
+              luxAlertMax: N
+              luxAlertMin: N
+              luxAlertOn: BOOL
+              luxAlertState: S
+              notifyOnEveryEvent: BOOL
+              notifyOnOpenMinutes: N
+              sensorId: S
+              temperatureAlertDate: S
+              temperatureAlertMax: N
+              temperatureAlertMin: N
+              temperatureAlertOn: BOOL
+              temperatureAlertState: S
+              updatedOn: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: sensorId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sensoralert
+            tablePrivacy: private
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              eventDateTime: S
+              eventDescription: S
+              eventDuration: N
+              eventId: S
+              eventKeyword: S
+              sensorId: S
+              stationId: S
+              ttl: N
+              userId: S
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: eventId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-sensorevents
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              avgAccelx: N
+              avgAccely: N
+              avgAccelz: N
+              avgHumidity: N
+              avgLux: N
+              avgTemp: N
+              maxAccelx: N
+              maxAccely: N
+              maxAccelz: N
+              maxHumidity: N
+              maxLux: N
+              maxTemp: N
+              minAccelx: N
+              minAccely: N
+              minAccelz: N
+              minHumidity: N
+              minLux: N
+              minTemp: N
+              sensorDataCount: N
+              sensorId: S
+              sensorOneHourRollupId: N
+              stdevAccelx: N
+              stdevAccely: N
+              stdevAccelz: N
+              stdevHumidity: N
+              stdevLux: N
+              stdevTemp: N
+              ttl: N
+            hashKeyName: sensorId
+            hashKeyType: S
+            rangeKeyName: sensorOneHourRollupId
+            rangeKeyType: N
+            tableName: ___DYNAMIC_PREFIX___-sensoronehourrollups
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              createdOn: S
+              deviceId: S
+              snsArn: S
+              type: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: deviceId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-usersnsconfigs
+            tablePrivacy: private
+  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint
+    components: 
+      analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
+      messaging-push: !com.amazonaws.mobilehub.v0.PinpointMessaging
+        attributes: 
+          deliveryType: push
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn
+    attributes: 
+      enabled: true
+      optional-sign-in: true
+    components: 
+      sign-in-facebook: !com.amazonaws.mobilehub.v0.StandardIdentityProvider
+        attributes: 
+          provider-id: "214573979133663"
+          provider-name: facebook
+      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider
+        attributes: 
+          alias-attributes: 
+            - email
+          mfa-configuration: OFF
+          name: userpool
+          password-policy: !com.amazonaws.mobilehub.ConvertibleMap
+            min-length: "8"
+            require-lower-case: true
+            require-numbers: true
+            require-symbols: true
+            require-upper-case: true
+  user-files: !com.amazonaws.mobilehub.v0.UserFiles
+    attributes: 
+      enabled: true
+      wildcard-cors-policy: true
+name: ionic-sample-app
+region: us-east-1
+sharedComponents: 
+  push-apns: !com.amazonaws.mobilehub.v0.PushPlatform
+    attributes: 
+      consumingFeatures: mobile-analytics
+      credential: 4159414465476164354c51446c4b6e663550705471322f3136463841655141434141706859324e76645735304c576c6b414177304f4451324d6a4d314d6a59314e7a4d41465746336379316a636e6c77644738746348566962476c6a4c57746c65514245515735716144673462307378536b6b3362444272534764534c3267766544513264455635626b39555230646d56484e7a6358687a655578684d305a5553556456656c687a4d5664326348426b617974475a5759346232785250543041415141485958647a4c5774746377424c59584a754f6d4633637a707262584d3664584d745a57467a644330784f6a517a4e7a41354d446b354d44597a4e5470725a586b764e7a68694d3255314e5467744f474e6b5a5330304d5751334c5467345a444d744d7a466a5954526c5a446b305a475134414b6342415145416548576a726a4f5974744532443062336d2f3661456f55617a61414777487a796535774350734f712f4b695a41414141666a423842676b71686b69473977304242776167627a4274416745414d4767474353714753496233445145484154416542676c67686b67425a514d45415334774551514d6e4d50484548553352746a7861425a7141674551674473495062537a355636324f6e42623567666e4b34304879324676337162776737344f656e57585239304448672b6a756f34774c736d746a4570494d6c624c374a4e6f7935676e746a5566795239382f514941414141414441414145414467384e5572394645564b7a61656c42566f6e4d2b7641734268537037706f62527a326433542f2f2f2f2f7741414141484f57784f6d79686f626535355a5241344141416150743469307a772f4466705666303146703077314469787442546143482b735a34475a4651365969345935384831736c5963426e383267423974534a7172676d35456450304665327664753050644c76684769764867354b4d4241466d7052645477416279736e72785634617863553469397237533655576a696a436347674c506f45594f76723732396648684c45524e695036613832776e6854634963635a50456b30703436353937534670453837487842326c6d67663366585377677338322f4e794777703665394853627576636f2f4d6f78767166426e5965704e4d74537231347a6c564959763133324258566c716f6756545136624b6b323369646a4e714c54576a4e663368456a3954544e4563314c475577394653652b70672f4b456f76464553552f457933437155484e53702b543234454c6d6f625a776c62416b674e7267526a464e674a3651786c48386f49785a4550316e727857583931366333343430755155504c4e5635417859532b374c3846554d654f48494d444466795a2b494732594b776b456d4b66322f50306c5037366c4c76473161746c316b3275525453456e375a6645326d383848705132532b7367576d51307137614130705674554142736a497a79615a5353637076422f664e5a54533536486938666c426b37325770576650766531794d624c32654f6534484533626b726c504e696931416f4f41525942394a5469675a524b75524a666d5177596b4a5061393436375973444e633964315534522b33742b6f466a7232434c7971624742767033556a4f424f344442454172574756323962534d76334b414d773434654b653075322b452b666c6b515552565a7038496d6863657a704c4e694665516652436b4f6642437859444f6a5a474965316f724c43376a7963784279574576797853535475733331585554514a656b5952794a514a6268587348394d76462f6133316b4172636e51356c6c6d2b68684d53474f39586e674f397973724d63616944536d48706b625537705a4352734f69794975683451334c457571594468594b362b6e6c41305962473665666d49305a6335326f764b38774e54584d326a61444f76794b366641434875797545664461786a70377256347a416b486c416f384f77614c353747734c745050746c68566c756f4e7852766d654645696774356d4c427638514f525253564375744970506b416c754d776752536f43474a2b4e6d594f50554235676d7a37303178746a2b5a76696d7a413151344c326c4d784b47306d6476596f6864642f39444d68304a55432b332b744f54586569527a51433069336b67435a4f785771577059757262422b703762787a54772f4c35724f474139506666504d2f4966672b32596f4c7337526442676b7a7353347938596a677331384d626b4f4a5434486a52433174663330712b43737446787070384c4d486b456a68557255656d4c44646a67514d764c4c587065745369793834787978776b3453476468564b5641353346672b494e48546235554a4974586249687a657577554c735974337955636849502f49356a47616a51654d6467786237775a384d6c577a635a517646316f33666163496d614f3975307667756b6e775746355253523279337542734e656c324f424e776a5873747237444e716a795567753339334d41497154495442653441706172622f6459664a783038732b2b433452715454464b78565258706a49506f32774a694b72526f3271694d46684c506d4f363059744633524a7548557a4f526f556546356858626a63316c6b374c4547374147387046356c6b3667782f6671423151385a555572694a49412f71673672572f51653775744c48612f6c6a7053784c3161373969496f66424674355a472b5371436e7377655762534d706a33532b696a7a4b41347534596279734c306a416e2f627832447371526d6d5a3666306a79367969692f66497356546a612f642b432f32777050326e3056374d48515163325758446778766e635978554670663555544f49397742755248524b4f6d43456b322f4d66504c616764387661586e6939346d68596971532f4a6451542f5a2f556d6c79796431593537765341434f4c48776852372f444e556f4b6468674a57397438667538677669435457342b645a4f5a554b37423167666e6b764476516f784c7a70516b6d4c3438574b774a35484b3452722f497a3330714d544f72427a36594a486f6576666c545a322b37586133747250396b53324c652b63677145487262704e3964517470626a6b716732586c394c464d37614f535a776735644e65656f685637427577704a76734c79387a37753868544a6562466e4f374a353762424635654941515a396677714c384d484b7a635234707731737861434b62715838777a75367161624a65412f6a4b342b6f616e3030526b57343033326e306f794438424c446c31714a557263356b4d584868566e6b36443958374a464d696c51304e4f2f4457745932653843652f77486f334a56446d39776745304d54735464534b394a424d4375636c5270736c37797058734a362f71452b59444a7a41636267624c58556b612f33467931674a6a6e62304f4764642f594a6e42316e4d456d2f3379643442337055505976786d6d50706a4a32374536387535576b306336424a30592f70752b664873646136355136654833473969437255596851674a534b47474c503035743432594c614f4543473431414a4a476336776e316e76654f696c4d7a46696e2b34303879746a69416b37327a3659754f39315a774266314a4a48384f713973384a6c7569544b734b436b4f566f49764967416562464d30546d76365236646432334d744559667458725857446a5641776275447841496b6249653550342b522f6e36375370484f4e7a7a6f72755747456e6b446f6e35726b4e52736d4a3055383466454852476e75496c38436f524968582b496e4c6c786764464f68644674516b786a3576336f6d304357777a61377277307373614c35324a5268366f42754d53794948423377305a425779427a64565a57435855764949764b4350576a49376f50734736304f4d7065462b44504a446a497245564838655648544c446975616d3939332f7570796d54414763775a514978414d79372f7073757969446255416d58724937725073306b6335467a594b74564153734279314d66635a34564542647571656654414d76316c586a2b2b6d73436167497749657842565043616d374c6d706675544d2b414a4b626f7a324e5a612b6b337a4f31564156666837412b784f475232462f4e624661622f69417043636e79794e
+      principal: 415941446546546972654948343756706b67614f6552586b70684941655141434141706859324e76645735304c576c6b414177304f4451324d6a4d314d6a59314e7a4d41465746336379316a636e6c77644738746348566962476c6a4c57746c655142455158644b4d6e4a3559315a4c595551314f46525a546c64544d6e6444516a5244516c424d576e4a585330394e4e3046785757786b536b68756546513159326779644551354f5856574e474e6e646b70445243746b6157395250543041415141485958647a4c5774746377424c59584a754f6d4633637a707262584d3664584d745a57467a644330784f6a517a4e7a41354d446b354d44597a4e5470725a586b764e7a68694d3255314e5467744f474e6b5a5330304d5751334c5467345a444d744d7a466a5954526c5a446b305a475134414b6342415145416548576a726a4f5974744532443062336d2f3661456f55617a61414777487a796535774350734f712f4b695a41414141666a423842676b71686b69473977304242776167627a4274416745414d4767474353714753496233445145484154416542676c67686b67425a514d45415334774551514d6e3868776c36487877697651664456794167455167447454616557704743536c512b675838712b41786536484f582f617254367466354b486b6b6b2b4337644c463259584d6a324a6f6a7a774978397a495358724230664f6b765158316d652b494a4c467a51494141414141444141414541425777353176757269426250365a7654502b4a554b58446c354b44526c576b6e7032637561372f2f2f2f2f774141414147566f38484b58692f636d7947396b556b414141694450434248556836555a646d6153397931526d79423353786a4d72723071566c4a4479755474635175364e6f4339574b675a47346f3534554b6e5856563276516755792b74384b796e68686c4f4b6a2b417156304f37774d6d5a4479454b4d384a542b6d4c3562664273316b67444861754565373179413232324e3041454f4c49675664384e577a4c727837674f5755324930554e635a62375565564457534f53785466646549486d35757338584f346f524150356c6574344c5373552f56676c6d4c35456a4c595162754c6d31594f426f4c474f487a7032566a57484d65537672515672706378595564484e375966536f6c50445264733843374552303765414b476c56316b6b647a77716d3047776141724f392f61564b4f355143664464444b636d6b49312b41786556783079614b7a644478516e6e4e636961525135506a614d654f2f4c637039773041704e325452702b4e5a4262507432463675744d4956494753367957354a625950764d4747396e7371364d33317a705a3653385953335164724e46792f4b39693251444d305354307a457755735257546e536c4a694d4751494a2b466a6b57313561553878477558436d6a6275514a67626f5850516965626c6c385a6e6973796e564748656c45575244317036555a4e626e687776486f4a777541704849704f61514f3751707850345457473839556646346170317675454250755a62444c744e5a67716b56536f746e66436f2f50486676354453672b47462f6f44475857394e45697a44736e752b55755651786d70517642755132304f797156584a6a446b2b61613268473551346f4c39366145696d6779396b2f525051536f706756644f53566241344a4961537763494f434870424d7a497a566e516865436550375874422f445462564d464259394e636d59344162494242466d6c5932783155766f69566f4e6e666a6f6b76686456704a66676a3145344d2f56796b7a493231762b2f556833652f534c454758634c43345979324454536d326277693855366548783361362b38474353564e6d4e7654696566466c56716f6e4548366e624d6b64796f5a6e716a66597279674557552b4f7875792f5568706d466658677970653861613867757330727a7a2f7877673977722f547845444a63305a55303372435548735254537271556f6a6c6147352b36576457684541717970326d4c43636a784d64724d78706d3767636f462f6279752b507557744b31717941506b6945414d31312b62487a585264594c4a2b32447651796446546c7438376648386c705568694e48624162307974694d62754c6d7a47676b734e66324d536c7839326644594f5569444f4c614c35576f2f75704e63744837497643306e4b7258706e37704456316c567577644f3061797072477151654b7a6f5a42667054527962754c43584753663450654c57573271474f764963746834682f766159356d632f3155666f356b5a62615267624c3876717856573949525773414e73337252373367397532574a30684832383843504b547a7a584b52366a6a516d33616b346741634858354c746e63474b51334d61557a746b694368436467596733697a5063594d49642b7a445631307658462f724e5257743544745276767946364e765153486d6f2f48556c554f4b733662616856314d4d2b505a754f474d7079594255414557696663324c757250716a6a34716549366c6b3055694464624173614257437430546e46302b4d36524e2b344c634636395a6d45697678394f6f4447525256754f52734a4f6c2b59694b2b715a37593578626b746b745a7643653873366e4b796a45492b72486c61412b6a5061494453585156396865492b3634596877324d73345961426e4b425865536e4461553762336c43637961576a63666e44575576525472774330642b47474778423352756c543363386869486a65787a78737941797373636138637633664e496a65376b4847502f67424a44764e4a54774c4950744f5a416c366534306e7447756478627573477046436c63584a592b337877357475686763546d4170483061342f3030307147644e435250676a6e4263706a48504a584a397368633963517877426148494a434f374f593954524e6d574c2f41485a7750424a65526f594a704a4a505a586570514e394a354777614a4f36587859495235725641554965693473745236554f633476726c6852716a5a7449497961482b4b4f594d4967347870645264417337646346543379635667536277446943566a7764676d77756d777a4273322b724d434f62644d3653724765794d784441746d7759594c472f4f6b354e50444250757a71723053454a7863305747642f54336150694845374a4f786d61786e484376325545702b746a584961426264354f53314641526c34306b334d6c7152366a35737769386a4859464262686868537a6431546a63686179726b663130346a6a66367162726c524b6b39557142453049676f36587055662b6c42385956707732476230782b6f3972654b38586735496f724858336a48595554382f7a714f2f5149784266464b456d5257336871385070447366754b325239483763547451314a494b413431772b616346414b79316a59556f637741376666796c676b33684f524253636c784d586a6255663667726370334d666f353532456d61527054556d376b6931687958666c77596b323131763570666f462f346e5447775a32793468516e6e6344314a756c75624844426e774d66703975394e47696b4332537a4342376669307163674c47684d4b64722b757a30633145795950526c334a6175654263626b6d2f587a6d3678714c393670666b5945706b444345574f64725531444b63306442724c533367622f474c4b75662f6f64527054597855675837716e6b625159697070366756704b6249785072744172304c4233522f48426c466c45364b4b6a413033566f4532524b31544170424936392f4a5367796562314978787a4f31502f68466963686d3779596261437268316152753177486f6673322f4b62574b7038356e2f4c32573673684e375442564d523364445634423064744e7970327167756f5642446d75304a4a3962534c754366764c5632372b743650774b617275686263764c586e5174716a6278587048494d2b6b73784738495765696c7477646d324477774a436f616e3232334e4637426e3231666261617155535076477a472b36346b334a42416d526a416c485a4977613530627a4b78544e3930545a67474d797961664d722b78634372433265644a54706165364c6f734b555a3157417a4d31556a716f526d742b54314b4f33675267394a6d5659576d6779354144675562626a6d77645256696c7462547a6f4e3778336178753675685234736c6247716d443979523947633050504369556561457a4b465779534c397a657062787130344e5137654a485242506c596d4d3072504e56615568336a396f644941534846586c3550655672534761696a6c5a5a367532536475445832424a556233634b56414e30446866716a72545147507a385041767756622f784f7249716c7371526a724c4d756e492f554f6f4b6630547179755a38706d45664b586550523430487732582b72793554516541364752302b2b46766f3443687573476b375551794f484a4f485a4433716c732f796c4c457450726b7350475730474262336f616772706a656b74396271614349396c4d32656231773847474374613568554665324e6b3664516637374e4a66597a58466a664a6968716b616551737355534479394f2b504e7a666b6947336f70336d44736846437367636f7471776b68456465343658736955474755456c7a754f613948395862577944546348446b656d7969553965313473646d38344a423435543855674b63545076616852572b62786778347371526254774a756959716755717666617a5276376f4a647a466b68702f6b64776d5531784774553366624e78424537542b323345424c67366b356a38437759312b434c6269767541522b4861474f71375975676e576d41356f4967415a7a426c416a42486f395565736c31566e684132534b72772b4c354a39556c65714947576b36644373592f782f324a696e34576e5569304a3975706747686f766e6f37634d6477434d5144566b504f76743645492b4c53674341357872474b6459415567396d63652f6664314473566a78496443506c616d4f7670415733413974642f55617437525442493d
+      type: 4159414465413534515563614150626332394b324c47354d32413041655141434141706859324e76645735304c576c6b414177304f4451324d6a4d314d6a59314e7a4d41465746336379316a636e6c77644738746348566962476c6a4c57746c6551424551546871516b7442614442486156687153327071536e425a5a6c684862446858636c467361474a7a637a5a454d6b394d57556450613341306347744e59334a4b4c315a3253474e68645667345345315a4e6d524a536e684250543041415141485958647a4c5774746377424c59584a754f6d4633637a707262584d3664584d745a57467a644330784f6a517a4e7a41354d446b354d44597a4e5470725a586b764e7a68694d3255314e5467744f474e6b5a5330304d5751334c5467345a444d744d7a466a5954526c5a446b305a475134414b6342415145416548576a726a4f5974744532443062336d2f3661456f55617a61414777487a796535774350734f712f4b695a41414141666a423842676b71686b69473977304242776167627a4274416745414d4767474353714753496233445145484154416542676c67686b67425a514d45415334774551514d485a48776850764c7777774c44734971416745516744746e61756531675570746872595736353839397535547253356e4a4f4365394b4f5238674e6f786474347a574136482f706478393476484f5a50382f667951747a692f69744557485531454b6e476751494141414141444141414541447a6537334c7341366d4147525679465a487349586c2b614856584f5179704243314d5132632f2f2f2f2f7741414141456a6f4878684f446c55654c4b516e3338414141414b4b4b3241756c442f666c374e4c6441774b6c6730524957454f7a412f3355614a73326b415a7a426c416a427179614f77334946756d6d647a317665636d372b5a45516570354c35344679396a374d4463594c522f4b6e56504c7667584f30453752346852636e453279346b434d5144326c352f4b596579584b535a4a764544544e6b4e6a426573796f416c663050427651694872417031624e6a6f6730454f42616d68682f55566b4f45665a4174633d
+  push-gcm: !com.amazonaws.mobilehub.v0.PushPlatform
+    attributes: 
+      consumingFeatures: mobile-analytics
+      credential: 41594144654767674c4f50764f482b485a2f73635844774975556f41655141434141706859324e76645735304c576c6b414177304f4451324d6a4d314d6a59314e7a4d41465746336379316a636e6c77644738746348566962476c6a4c57746c655142455154593055474a55626c6b7654573542517a63354e466844546c5279646c426d4d3235544f566b354d586730635667326430383054335a6959306c324b7a4270596a4e35545764424e6d644665564a334d4856535455464250543041415141485958647a4c5774746377424c59584a754f6d4633637a707262584d3664584d745a57467a644330784f6a517a4e7a41354d446b354d44597a4e5470725a586b764e7a68694d3255314e5467744f474e6b5a5330304d5751334c5467345a444d744d7a466a5954526c5a446b305a475134414b6342415145416548576a726a4f5974744532443062336d2f3661456f55617a61414777487a796535774350734f712f4b695a41414141666a423842676b71686b69473977304242776167627a4274416745414d4767474353714753496233445145484154416542676c67686b67425a514d45415334774551514d7452706f665839345050396d2f736c6f4167455167447474703872492f6e6f786f61486938777a714f433535587249673551694d4f534e4f63452b4d6e5470714c795076414c556f5333615272644243323658525847664e35693443755570684168677265674941414141414441414145414362627a64764f696f3959694841484378687647676b7655777244504b627450616f4c5535722f2f2f2f2f774141414145344f485437584b32494d783779576f4d414141435936636c4d4165615a4e344145725972653457465951536e6c4f2f766f7a6b62716a533843536f4e6a686e777955686c47307a514b546c74376d71652f4776314e5043616f7a463951457473614c546a3068566d61766d4f4c676161524c64764962365a676273426a747a3651644f4a79666e354b366455716169547456344952334453354f6e4b6261537734305670487a5a4a7037577676304a573176704536796e766f3877736f2b4e4832765441526b584f3535566355694c71715231674f626939525770646a727075316d3577626950484a78656f33413456674653597a414763775a514978414e327247754c314d736d463655707373356c5578477762663475314b596b754f7775544838674f584c4742784a676a4f786253754d747631475a63757568415777497753446671436153697a56617a733941774961473964716e71386f48747256365a55782b31426b54344c583458756b4974364f337668414f426b3644465a585563
+      gcm-sender-id: 41594144654862516b6c45336d2f33544448797a6956575869375941655141434141706859324e76645735304c576c6b414177304f4451324d6a4d314d6a59314e7a4d41465746336379316a636e6c77644738746348566962476c6a4c57746c65514245515446566545396b4e57564c4e334254546a64335447343055554e436444524256554a34526c5668595670684d6e4d77536c4679616c4a7a543070494e474a4d4d5856315547314f4e557376643368345131684c4b30393350543041415141485958647a4c5774746377424c59584a754f6d4633637a707262584d3664584d745a57467a644330784f6a517a4e7a41354d446b354d44597a4e5470725a586b764e7a68694d3255314e5467744f474e6b5a5330304d5751334c5467345a444d744d7a466a5954526c5a446b305a475134414b6342415145416548576a726a4f5974744532443062336d2f3661456f55617a61414777487a796535774350734f712f4b695a41414141666a423842676b71686b69473977304242776167627a4274416745414d4767474353714753496233445145484154416542676c67686b67425a514d45415334774551514d645676534153434b365a75304a2b62414167455167447474784e457473396e654d46304e4335724e435a6e742f72656a6d7a7752466543766977342f4349534b6972346c38316e716c612b6e716852556e325256356f36776b395435556c586a545144516a41494141414141444141414541414d76454f5244354c6746504f38644b384a6844662b3968655a66744579786d4663583032322f2f2f2f2f7741414141486a793650597776516a6e6332515a5641414141414d50376b6b6430612b6c5a616857624763526854355a486e376150653161434d49394d35723277426e4d4755434d41766634592b6c79305969484f3661682f466559376e42776d77506f30593355793761544c576734763241536b54703357496676534b63716d7531633775302b774978414a79534635726b427675374262724e2b4f6f73343043573374675776693358424e523930366d786f6c633065396f48356c472f34367451396c3539366c737730773d3d

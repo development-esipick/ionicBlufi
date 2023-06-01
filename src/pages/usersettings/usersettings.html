@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <div>
+      <form (ngSubmit)="editSettings()" #settingsForm="ngForm">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list radio-group [(ngModel)]="userSettings.settings.temperatureUnits" [ngModelOptions]="{standalone: true}">
+          <ion-list-header color='dark'>
+            <h2 style="color: #85FF00;">Temperature Units</h2>
+          </ion-list-header>                                    
+            <ion-item color='dark' no-lines>
+              <ion-label>&deg; Fahrenheit</ion-label>
+              <ion-radio value="f" color='white'></ion-radio>
+            </ion-item>
+
+            <ion-item color='dark' no-lines>
+              <ion-label>&deg; Celsius</ion-label>
+              <ion-radio value="c" color='white'></ion-radio>
+            </ion-item>                                       
+        </ion-list>        
+        <div>
+          <ion-card color='dark'>
+            <ion-card-content></ion-card-content>
+          </ion-card>         
+        </div>
+        <ion-list>
+          <ion-list-header color='dark'>
+            <h2 style="color: #85FF00;">Language</h2><p>&nbsp;</p>More languages coming soon!
+          </ion-list-header>                                    
+            <ion-item color='dark' no-lines text-center>
+              <ion-select [(ngModel)]="userSettings.settings.language" [ngModelOptions]="{standalone: true}" [selectOptions]="languageSelectOptions">
+                <ion-option class="ion-option" value="en-US">English</ion-option>                
+              </ion-select>              
+            </ion-item>
+        </ion-list>                
+        <div>
+          <ion-card color='dark'>
+            <ion-card-content></ion-card-content>
+          </ion-card>           
+        </div>
+        <ion-list>
+          <ion-list-header color='dark' text-wrap>
+            <h2 style="color: #85FF00;">Phone Number</h2><p>&nbsp;</p>If you want text or SMS notifications, please provide your phone number.
+          </ion-list-header>                                                        
+        </ion-list>            
+<international-phone-number style="color: #000000;" text-center color='dark' [(ngModel)]="userSettings.settings.textPhoneNumber" placeholder="Enter phone number" [maxlength]="20" [defaultCountry]="'us'" [required]="false" #phoneNumber="ngModel" name="textPhoneNumber" [allowedCountries]="['ca', 'us']"></international-phone-number>              
+        <div>
+          <ion-card color='dark'>
+            <ion-card-content></ion-card-content>
+          </ion-card>           
+        </div>
+        <ion-list>
+          <ion-list-header color='dark' text-wrap>
+            <h2 style="color: #85FF00;">Notification Email</h2><p>&nbsp;</p>The following email address is used if you select to receive email notifications.
+          </ion-list-header>                                    
+            <ion-item color='dark' no-lines text-center>
+              <ion-label floating>Email Address</ion-label>
+              <ion-input type="text" name="notificationEmail" [(ngModel)]="userSettings.settings.notificationEmail" disabled></ion-input>          
+            </ion-item>          
+        </ion-list>                    
+
+         <ion-row>
+           <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!settingsForm.form.valid">Save Settings</button>
+           </ion-col>
+         </ion-row>          
+      </form>
+  </div>
+
+</ion-content>

@@ -1,0 +1,23 @@
+{
+	"ProjectName": "client",
+	"ProjectPath": "/Users/joeackert/Desktop/projects/rmss/awsMobile/aws-mobile-ionic-sample/client",
+	"SourceDir": "src",
+	"DistributionDir": "www",
+	"BuildCommand": "npm run build",
+	"StartCommand": "ionic serve",
+	"InitializationTime": "2018-02-28-09-42-18",
+	"LastConfigurationTime": "2018-03-07-15-44-39",
+	"LastNPMInstallTime": "2018-12-06-13-17-08",
+	"FrontendLastBuildTime": "2018-12-06-13-17-39",
+	"LastPublishTime": "2018-12-06-13-19-00",
+	"BackendFormat": "yml",
+	"BackendLastSyncTime": "2019-04-04-10-12-35",
+	"BackendLastBuildTime": "2019-04-02-11-32-11",
+	"BackendLastPushTime": "2019-04-02-11-41-23",
+	"BackendLastPushSuccessful": true,
+	"BackendProjectID": "85ea1871-85ae-4926-b8a7-84498340003f",
+	"BackendProjectName": "ionic-sample-app",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/85ea1871-85ae-4926-b8a7-84498340003f/build",
+	"BackendProjectCreationTime": "2018-02-28T16:30:18.858Z",
+	"BackendProjectLastUpdatedTime": "2019-04-02T17:36:36.675Z"
+}

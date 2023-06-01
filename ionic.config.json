@@ -1,0 +1,7 @@
+{
+  "name": "ionic-tasks",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

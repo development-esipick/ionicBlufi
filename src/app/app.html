@@ -1,0 +1,48 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngIf="!auth.isUserSignedIn()" (click)="openHomePage()">
+        Home
+      </button>      
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openStationsPage(true)">
+        Locations
+      </button>
+      <button menuClose ion-item *ngIf="!auth.isUserSignedIn()" (click)="openSignInPage()">
+        Register or Login
+      </button>
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openSettingsPage()">
+        Account Settings
+      </button>      
+      <!-- 
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openSubscriptionsPage()">
+        Subscriptions
+      </button>   
+    -->
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openIFTTTPage()">
+        IFTTT Integrations
+      </button>                                                      
+      <!-- <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openI18nDemoPage()">
+        i18n
+      </button>             -->
+      <button menuClose ion-item (click)="openHelpPage()">
+        Help
+      </button>                  
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openAboutPage()">
+        About
+      </button>            
+      <button menuClose ion-item *ngIf="auth.isUserSignedIn()" (click)="openSignOutPage()">
+        Logout
+      </button>      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

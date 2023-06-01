@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="openEditStation()"  [color]="userColor">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)" [enabled]="auth.isUserSignedIn()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngIf="!auth.isUserSignedIn()" color="light">
+    <ion-card-content>
+      Log In to see your station details.
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="auth.isUserSignedIn()">
+    <div *ngIf="(size | async) === 0 && !stationsLoaded" color="light">
+      <h1 text-center class="xxl soft"><ion-icon name="globe"></ion-icon></h1>
+      <h3 text-center class="soft">Loading {{this.stationName}} sensors... </h3>
+    </div>
+
+    <div *ngIf="(size | async) > 0" padding>
+      <h2 text-center class="heading2">{{this.stationName}} Sensors</h2>    
+      <ion-list>  
+        <ng-container *ngFor="let sensor of sensorStore.sensors | async; let idx = index" >
+          <ion-item *ngIf="(sensor.stationId == this.selectedStationId)" (click)="openSensorDetails(sensor.sensorId, sensor.name, sensor.stationId, sensor.sensorType, sensor.sensorStatus)">
+            <ion-avatar item-start *ngIf="(getTimeSinceUpdate(sensor.updatedOn) <= 30000)">
+              <button ion-fab color="secondary"><ion-icon name="radio" large></ion-icon></button>
+            </ion-avatar>
+            <ion-avatar item-start *ngIf="(getTimeSinceUpdate(sensor.updatedOn) > 30000)">
+              <button ion-fab color="danger"><ion-icon name="warning" large></ion-icon></button>
+            </ion-avatar>            
+            <h2>{{sensor.name}}</h2>              
+            <ion-grid no-padding *ngIf="(getTimeSinceUpdate(sensor.updatedOn) <= 30000)">
+              <ion-row no-padding>
+                <ion-col col-1 class="grid-col"></ion-col>
+                <ion-col col-11 class="grid-col">Status: {{sensor.sensorStatus}}</ion-col>                
+              </ion-row>
+              <ion-row no-padding>
+                <ion-col col-1 class="grid-col"></ion-col>
+                <ion-col col-11 class="grid-col">Temperature: {{sensor.lastTemperature}}&deg;</ion-col>                
+              </ion-row>
+              <ion-row no-padding>                
+                <ion-col col-1 class="grid-col"></ion-col>
+                <ion-col col-11 class="grid-col">Humidity: {{sensor.lastHumidity}}%</ion-col>
+              </ion-row>              
+              <ion-row *ngIf="(sensor.batteryLevel <= 22)">
+                <ion-col col-12 class="grid-col-warn">Battery is running low!</ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-card *ngIf="(getTimeSinceUpdate(sensor.updatedOn) > 30000)">
+              <ion-card-content text-wrap class="grid-col-warn">
+                This sensor hasn't sent an update in a while, check the battery or internet connection!
+              </ion-card-content>
+            </ion-card>            
+          </ion-item>      
+        </ng-container>
+      </ion-list>
+    </div>
+
+  </div>
+  
+   <ion-row *ngIf="!isShared && (platform.is('ios') || platform.is('android'))">
+     <ion-col width-100 style="text-align: center">
+      <button ion-button round outline color='secondary' (click)="openAddSensor()" [disabled]="!auth.isUserSignedIn()">Add New Sensor</button>
+     </ion-col>
+   </ion-row>    
+    
+  <ion-buttons nopadding end>
+    <button ion-button icon-only clear (click)="openHelpVideo()"  color="white">
+      <ion-icon name="help"></ion-icon>
+    </button>    
+  </ion-buttons>   
+  <div *ngIf="showHelpVideo">
+    <iframe #iframeVideo width="100%" height="265" [src]="trustedHelpVideoUrl ? trustedHelpVideoUrl : null" (load)="trustedHelpVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+  </div>     
+</ion-content>

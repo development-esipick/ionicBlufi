@@ -1,0 +1,170 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Location Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <div *ngIf="!this.isShared">
+      <form (ngSubmit)="editStation()" #stationForm="ngForm">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list no-lines>
+          <ion-list-header color="dark">
+            <h2 style="color: #85FF00;">Change Location Name</h2>
+          </ion-list-header>          
+          <!-- <ion-item color='dark'>
+            <ion-label fixed>Station ID</ion-label>
+            <ion-label>{{this.selectedStationId}}</ion-label>
+          </ion-item>
+          -->
+          <ion-item color='dark'>
+            <ion-label floating>Location Name</ion-label>
+            <ion-input type="text" name="name"  [(ngModel)]="station.name" required></ion-input>
+          </ion-item>                 
+
+        </ion-list>        
+
+         <ion-row>
+           <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!stationForm.form.valid">Change Location Name</button>
+           </ion-col>
+         </ion-row>          
+      </form>
+  </div>
+  <div>
+    <ion-card color='dark'>
+      <ion-card-content></ion-card-content>
+    </ion-card>          
+  </div>
+  <div>
+    <form (ngSubmit)="saveSettings()" #stationSettingsForm="ngForm">
+      <ion-list>
+        <ion-list-header color='dark' text-wrap>
+          <h2 style="color: #85FF00;">Location Notifications</h2><p>&nbsp;</p>Select how you would like to be notified of alerts for this location.
+        </ion-list-header>                                    
+          <ion-item color='dark' no-lines>
+            <ion-label text-wrap>
+              <h2>Push Notification</h2>
+              <p>These notifications pop up on your phone.</p>              
+            </ion-label>
+            <ion-checkbox [(ngModel)]="stationSettings.settings.myLocationPushNotification" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item color='dark' no-lines>
+            <ion-label text-wrap>
+              <h2>SMS/Text Notification</h2>
+              <p>These notifications look like SMS or text messages.</p>
+                <div *ngIf="!userSettings.hasSubscription">
+                  You must have a valid Subscription to enable this setting. Please visit the Subscriptions section from the main menu.
+                </div>              
+            </ion-label>
+            <ion-checkbox [(ngModel)]="stationSettings.settings.myLocationTextNotification" [ngModelOptions]="{standalone: true}" [disabled]='!userSettings.hasSubscription'></ion-checkbox>
+          </ion-item>            
+          <ion-item color='dark' no-lines>
+            <ion-label text-wrap>
+              <h2>Email Notification</h2>
+              <p>Sent to your email address associated with your account.</p>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="stationSettings.settings.myLocationEmailNotification" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>     
+          <!--       
+          <ion-item color='dark' no-lines>
+            <ion-label text-wrap>
+              <h2>Voice Notification</h2>
+              <p>Sent to you Google Home Devices or Alexa Devices if you've enabled the SimpleSensor capabilities for those devices.</p>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="stationSettings.settings.myLocationVoiceNotification" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>            
+        -->
+      </ion-list>             
+
+      <ion-row>
+       <ion-col width-100 style="text-align: center">
+        <button ion-button round outline color='secondary' type="submit" [disabled]="!stationSettingsForm.form.valid">Save Location Settings</button>
+       </ion-col>
+      </ion-row>        
+    </form>
+  </div>
+  <div>
+    <ion-card color='dark'>
+      <ion-card-content></ion-card-content>
+    </ion-card>         
+  </div>  
+  <div *ngIf="!this.isShared">
+      <form (ngSubmit)="shareStation()" #shareStationForm="ngForm">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list no-lines>
+          <ion-list-header color="dark">
+            <h2 style="color: #85FF00;">Share Location</h2>
+          </ion-list-header>          
+
+          <ion-card color="dark">
+            <ion-card-content>
+              Share sensors in this location with your SO, roomate, friend or family member so they can also receive notifications and track activity.
+            </ion-card-content>
+          </ion-card>
+          <ng-container *ngFor="let sharedstation of sharedStationStore.sharedstations | async; let idx = index" >
+            <ion-item color='dark'>
+              <h3 class="content-home">{{sharedstation.shareeEmail}}</h3>                          
+                <ion-icon name="trash" color="danger" (click)="deleteSharedStation(sharedstation.stationId, sharedstation.sharedStationId)" item-end></ion-icon>
+            </ion-item>
+          </ng-container>
+          <ion-item color='dark'>
+            <ion-label floating>Share With (Email)</ion-label>
+            <ion-input type="text" name="shareeEmail"  [(ngModel)]="sharedStation.shareeEmail" required></ion-input>
+            <button *ngIf="platform.is('android') || platform.is('ios')" ion-button round outline color="secondary" (click)="pickSharee()" item-end>Find</button>
+          </ion-item>                 
+
+        </ion-list>        
+
+         <ion-row>
+           <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!shareStationForm.form.valid">Share Location</button>
+           </ion-col>
+         </ion-row>          
+      </form>
+  </div>
+   <div>
+    <ion-card color='dark'>
+      <ion-card-content></ion-card-content>
+    </ion-card>         
+  </div>  
+  <div *ngIf="!this.isShared && station.numSensors == 0">
+      <form (ngSubmit)="deleteStation()" #deleteStationForm="ngForm">
+
+        <ion-list no-lines>
+          <ion-list-header color="dark">
+            <h2 style="color: #85FF00;">Delete Location</h2>
+          </ion-list-header>          
+
+          <ion-card color="dark">
+            <ion-card-content>
+              This will remove the location from your locations list.
+            </ion-card-content>
+          </ion-card>
+        </ion-list>        
+
+         <ion-row>
+           <ion-col width-100 style="text-align: center">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!deleteStationForm.form.valid">Delete Location</button>
+           </ion-col>
+         </ion-row>          
+      </form>
+  </div> 
+
+</ion-content>

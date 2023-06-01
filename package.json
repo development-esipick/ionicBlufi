@@ -1,0 +1,143 @@
+{
+  "config": {
+    "ionic_webpack": "./webpack.config.js"
+  },
+  "name": "ionic-tasks",
+  "version": "0.0.1",
+  "author": "",
+  "homepage": "",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "4.1.3",
+    "@angular/compiler": "4.1.3",
+    "@angular/compiler-cli": "4.1.3",
+    "@angular/core": "4.1.3",
+    "@angular/forms": "4.1.3",
+    "@angular/http": "4.1.3",
+    "@angular/platform-browser": "4.1.3",
+    "@angular/platform-browser-dynamic": "4.1.3",
+    "@ionic-native/app-version": "^3.9.1",
+    "@ionic-native/ble": "^4.7.0",
+    "@ionic-native/contacts": "^4.12.1",
+    "@ionic-native/core": "3.12.1",
+    "@ionic-native/facebook": "^4.12.2",
+    "@ionic-native/geolocation": "^4.20.0",
+    "@ionic-native/globalization": "^4.16.0",
+    "@ionic-native/in-app-purchase-2": "^4.20.0",
+    "@ionic-native/nfc": "^5.2.0",
+    "@ionic-native/push": "^4.7.0",
+    "@ionic-native/splash-screen": "3.12.1",
+    "@ionic-native/status-bar": "3.12.1",
+    "@ionic-native/vibration": "^5.2.0",
+    "@ionic/storage": "^2.0.1",
+    "amazon-cognito-identity-js": "^1.31.0",
+    "aws-amplify": "^0.2.15",
+    "aws-amplify-react-native": "^0.2.11",
+    "aws4": "^1.6.0",
+    "bn.js": "^4.11.8",
+    "cordova-android": "^7.1.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-ios": "^6.0.0",
+    "cordova-plugin-add-swift-support": "^1.7.2",
+    "cordova-plugin-app-version": "^0.1.9",
+    "cordova-plugin-ble-central": "^1.2.5",
+    "cordova-plugin-blufi": "file:blufi/cordova-plugin-blufi",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-contacts": "^3.0.1",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-globalization": "^1.11.0",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^5.0.0",
+    "cordova-plugin-purchase": "^10.2.0",
+    "cordova-plugin-splashscreen": "^5.0.4",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-vibration": "^3.1.1",
+    "cordova-plugin-whitelist": "^1.3.4",
+    "cordova-plugin-wifiwizard2": "^3.1.1",
+    "cordova-sqlite-storage": "^5.0.0",
+    "cordova-support-google-services": "^1.3.2",
+    "crypto-js": "^3.1.9-1",
+    "es6-promise-plugin": "^4.1.0",
+    "google-libphonenumber": "^3.0.9",
+    "immutable": "^3.8.1",
+    "ionic-angular": "3.9.2",
+    "ionicons": "3.0.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.keyby": "^4.6.0",
+    "lodash.map": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
+    "lodash.values": "^4.3.0",
+    "ng2-charts": "^1.6.0",
+    "ng2-translate": "^5.0.0",
+    "ngx-international-phone-number": "^1.0.4",
+    "phonegap-nfc": "^1.2.0",
+    "phonegap-plugin-multidex": "^1.0.0",
+    "phonegap-plugin-push": "^2.3.0",
+    "querystring-browser": "^1.0.4",
+    "rxjs": "5.4.0",
+    "sw-toolbox": "3.6.0",
+    "uuid": "^3.1.0",
+    "wifiwizard2": "~3.1.0",
+    "zone.js": "0.8.12"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "2.1.3",
+    "@ionic/cli-plugin-ionic-angular": "1.4.0",
+    "@types/aws4": "^1.5.1",
+    "@types/crypto-js": "^3.1.33",
+    "@types/node": "^8.0.17",
+    "ionic": "3.6.0",
+    "typescript": "2.2.2"
+  },
+  "description": "",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-blufi": {
+        "USESWIFTLANGUAGEVERSION": "4"
+      },
+      "wifiwizard2": {},
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-vibration": {},
+      "cordova-plugin-device": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "cordova-plugin-ble-central": {
+        "BLUETOOTH_USAGE_DESCRIPTION": "SimpleSensor uses bluetooth to setup sensors."
+      },
+      "cordova-plugin-purchase": {
+        "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkKBDpD2Cm0sjtbM+UNrlXlRXxGv7/zi3o/TnCSXHD9Ck8q+OvCMovHv92jO+eKiQHGqbBiGQreh0Nzq76cd4UKs5oWf+8Lwgpm+kcXiKPejpF8W/oSvzA95ruUxCVyNnmAMZt2B6fEiILesu3AbnvCLBErB3buQG/GuT96KHpEA/0Hup5DMJEsVx8wORk9vFqhKs4iwRfM9btqE1GBjqNINcmoEtHwFrd1U8tyMJUqeX8avzaupN0IZXMa003l+UAgGHgfJBWHWscr0R0fNLdQUyuKD4vg6yHP2CYZJ/G4Ho+zjJ3mPBlYR4eZZCJ5f0F7jXmhZZkLk24TT3Nr37YwIDAQAB"
+      },
+      "phonegap-nfc": {
+        "NFC_USAGE_DESCRIPTION": "SimpleSensor uses NFC to setup sensors."
+      },
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-ionic-webview": {},
+      "phonegap-plugin-push": {
+        "SENDER_ID": "777228507951",
+        "FCM_VERSION": "11.6.2",
+        "ANDROID_SUPPORT_V13_VERSION": "27.+"
+      },
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "SimpleSensor uses your Wifi location (SSID) in order to setup your sensors."
+      },
+      "cordova-plugin-app-version": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

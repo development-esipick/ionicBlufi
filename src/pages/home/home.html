@@ -1,0 +1,65 @@
+
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="openModal()"  [color]="userColor">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home'>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngIf="!auth.isUserSignedIn()" class='content-home'>
+    <ion-row padding class='home__welcome-message-bottom'>
+      <ion-col text-center>        
+        Welcome to SimpleSensor
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col text-center class="home_content">        
+        <!-- <ion-img width="160" height="114.28" src="assets/img/login-buttons.png" (click)="openSignInPage()"></ion-img> -->
+        Getting started with SimpleSensor is easy. Register a new account or login to an existing account using the links below. After that just follow the insturctions in this app to add your new SimpleSensor.
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col text-center>
+        <button ion-button round outline color='secondary' (click)="buySimpleSensor()">Buy a SimpleSensor</button>
+      </ion-col>
+    </ion-row>    
+    <ion-row padding>
+      <ion-col text-center>
+        <button ion-button round outline color='secondary' (click)="showRegistration()">Register a New Account</button>
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col text-center>
+        <button ion-button round outline color='secondary' (click)="openSignInPage()">Existing User Login</button>
+      </ion-col>
+    </ion-row>    
+    <!--
+    <ion-row padding>
+      <ion-col text-center>
+        <button ion-button small (click)="openFacebookSignInPage()">Facebook User Login</button>
+      </ion-col>
+    </ion-row>        
+    -->
+  </ion-card>
+  <ion-buttons nopadding end>
+    <button ion-button icon-only clear (click)="openHelpVideo()"  color="white">
+      <ion-icon name="help"></ion-icon>
+    </button>    
+  </ion-buttons>   
+  <div *ngIf="showHelpVideo">
+    <iframe #iframeVideo width="100%" height="265" [src]="trustedHelpVideoUrl ? trustedHelpVideoUrl : null" (load)="trustedHelpVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+  </div> 
+</ion-content>

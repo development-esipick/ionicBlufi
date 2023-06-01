@@ -1,0 +1,80 @@
+page-sensordetails {
+
+.card-title {
+    // font-weight: bold;
+    // background-color: color($colors, light);
+    // border-bottom: 1px solid #ccc;
+    // margin-bottom: 10px;
+    // border-top: 10px solid color($colors, primary);
+    color: #FFF;
+  }
+  .card-stats {
+    // background-color: color($colors, light);
+    // border: 1px solid #ccc;
+  }
+  
+  .content-home {
+  	background-color: #333;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .header-status {
+  	background-color: #333;
+  	color: #85FF00;
+  	font-size: 1.5em;
+  	font-weight: bold;
+  }
+
+  .detail-text {
+  	color: #FFF;
+  }
+
+  .detail-text-update-date {
+    color: #D3D3D3;
+    font-size: 0.75em;
+  }
+
+  .warning-text {
+  	color: #FFFF00;
+  }
+
+  .compare-text {
+  	font-size: 2.0em;
+  }
+
+  .sensor-data-compare {
+    border: 1px solid #fff;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFF;
+  }
+
+  .item-md {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .item-ios {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .sensortype-card-content-md {
+      padding: 0px 0px;
+      font-size: 1.4rem;
+      line-height: 1.5;
+  }  
+
+  .short-button-bar {
+    height: 30px;
+  }
+
+  .short-toolbar {
+    min-height: 30px;
+  }
+}

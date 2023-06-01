@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Add Sensor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+  <div *ngIf="showNFC">
+    <ion-card text-center>
+      <ion-card-content class='black-background'>
+        <div *ngIf="nfcIcon == 'qr-scanner'">
+          Tap your phone against the SimpleSensor you are registering.
+        </div>
+        <ion-list>
+          <ion-item color='dark' text-center>
+            <ion-icon name="{{nfcIcon}}" size="large" color="{{nfcIconColor}}"></ion-icon>
+          </ion-item>
+          <ion-item color='dark' text-center>
+            <ion-label>{{nfcName}}</ion-label>
+          </ion-item>
+          <ion-item color='dark' class='small-icon' text-right>
+            <ion-icon name="help" style="font-size:32px;" (click)="loadHowToVideo()"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="showForm">
+      <form (ngSubmit)="addSensor()" #sensorForm="ngForm">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card text-center>
+          <ion-card-content class="black-background">
+            Enter Wifi password and ensure the Wifi information below is correct. The Wifi SSID must be a 2.4 GHz SSID.
+          </ion-card-content>
+        </ion-card>        
+
+        <ion-list>
+          <ion-item color='dark'>
+            <ion-label floating>SimpleSensor ID</ion-label>
+            <ion-input type="text" name="blufiDeviceName" [(ngModel)]="blufiDeviceName" disabled="true" required></ion-input>
+          </ion-item> 
+
+          <ion-item color='dark'>
+            <ion-label floating>Wifi SSID</ion-label>
+            <ion-input type="text" [(ngModel)]="networkName" name="networkName" required></ion-input>
+          </ion-item>  
+
+          <ion-item color='dark'>
+            <ion-label floating>Enter Wifi Password</ion-label>
+            <ion-input type="password" name="networkPassword" [(ngModel)]="networkPassword" required focus></ion-input>
+          </ion-item>          
+        </ion-list>
+
+        <div class="row">
+          <div class="col text-center" style="text-align:center;">
+            <button ion-button round outline color='secondary' type="submit" [disabled]="!sensorForm.form.valid">Add Sensor</button>
+          </div>            
+        </div>         
+                
+      </form>
+  </div>
+  <div *ngIf="showVideo">
+    <iframe #iframeVideo width="100%" height="265" [src]="trustedVideoUrl ? trustedVideoUrl : null" (load)="trustedVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+  </div>
+
+</ion-content>

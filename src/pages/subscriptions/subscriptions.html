@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - Subscriptions</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-home" padding>
+
+  <div *ngIf="this.recommendedSubscription != null && !isPurchased">
+    <ion-card color='dark'>
+      <ion-card-content text-center>
+        If you need to track your sensor data for comparison on a monthly or yearly basis or you need to receive text/SMS alerts, we recommend a subscription. Based on your {{numSensors}} sensors, we recommed the following subscription.
+      </ion-card-content>      
+    </ion-card>    
+  </div>
+
+  <div *ngIf="this.recommendedSubscription != null && isPurchased">
+    <ion-card color='dark'>
+      <ion-card-content text-center>
+        Thank you for your purchase. SimpleSensor will begin storing your data for longer and you now will have the option to receive text/SMS messages in your location settings for each location. 
+      </ion-card-content>      
+    </ion-card>    
+  </div>  
+
+  <div *ngIf="this.recommendedSubscription != null">
+    <ion-card color='dark' text-center>
+      <ion-icon name="{{subscriptionIcon}}" size="large" color="{{subscriptionIconColor}}"></ion-icon>
+      <ion-card-content>        
+        <ion-card-title>
+          {{recommendedSubscription.title}}
+          </ion-card-title>
+        <p>
+          {{recommendedSubscription.description}}
+        </p>
+      </ion-card-content>
+    </ion-card>         
+  </div>      
+
+  <ion-row *ngIf="this.recommendedSubscription != null && !isPurchased">
+   <ion-col width-100 style="text-align: center">
+    <button ion-button round outline color='secondary' (click)="purchaseRecommendation(recommendedSubscription.id)" type="button">Upgrade Subscription {{recommendedSubscription.price}}/month</button>
+   </ion-col>
+  </ion-row>    
+
+  <div *ngIf="this.recommendedSubscription == null && this.currentSubscription != null">
+    <ion-card color='dark'>
+      <ion-card-content text-center>
+        If you would like to cancel this subscription please do so through your app store.
+      </ion-card-content>      
+    </ion-card>    
+  </div>  
+
+  <div *ngIf="this.recommendedSubscription == null && this.currentSubscription != null">
+    <ion-card color='dark'>
+      <ion-card-content text-center>
+        You have the correct subscription for your SimpleSensors!
+      </ion-card-content>      
+    </ion-card>    
+  </div>
+
+  <div *ngIf="this.recommendedSubscription == null && this.currentSubscription != null">
+    <ion-card color='dark' text-center>
+      <ion-icon name="checkmark-circle" size="large" color="secondary"></ion-icon>
+      <ion-card-content>        
+        <ion-card-title>
+          {{currentSubscription.title}}
+          </ion-card-title>
+        <p>
+          {{currentSubscription.description}} {{currentSubscription.price}}/month
+        </p>
+      </ion-card-content>
+    </ion-card>         
+  </div>          
+
+</ion-content>

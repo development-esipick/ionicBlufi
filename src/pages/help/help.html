@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor Help
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding text-center>
+  Click on the topic you'd like help with.
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadRegVideo()">
+      * Registration, Login and Forgot Password
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showRegVideo">
+      <iframe #iframeRegVideo width="100%" height="265" [src]="trustedRegVideoUrl ? trustedRegVideoUrl : null" (load)="trustedRegVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>   
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadAddSensorVideo()">
+      * Add a SimpleSensor
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showAddSensorVideo">
+      <iframe #iframeAddSensorVideo width="100%" height="265" [src]="trustedAddSensorVideoUrl ? trustedAddSensorVideoUrl : null" (load)="trustedAddSensorVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>    
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadNotificationsAndSettingsVideo()">
+      * Notifications & Settings
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showNotificationsAndSettingsVideo">
+      <iframe #iframeNotificationsAndSettingsVideo width="100%" height="265" [src]="trustedNotificationsAndSettingsVideoUrl ? trustedNotificationsAndSettingsVideoUrl : null" (load)="trustedNotificationsAndSettingsVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>  
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadAlertsVideo()">
+      * Alerts
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showAlertsVideo">
+      <iframe #iframeAlertsVideo width="100%" height="265" [src]="trustedAlertsVideoUrl ? trustedAlertsVideoUrl : null" (load)="trustedAlertsVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>    
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadDetailsVideo()">
+      * SimpleSensor Details
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showDetailsVideo">
+      <iframe #iframeDetailsVideo width="100%" height="265" [src]="trustedDetailsVideoUrl ? trustedDetailsVideoUrl : null" (load)="trustedDetailsVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>    
+  <!-- 
+  <ion-card color='dark' text-left>
+    <ion-card-header (click)="loadSubscriptionsVideo()">
+      * Subscriptions
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showSubscriptionsVideo">
+      <iframe #iframeSubscriptionsVideo width="100%" height="265" [src]="trustedSubscriptionsVideoUrl ? trustedSubscriptionsVideoUrl : null" (load)="trustedSubscriptionsVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>    
+-->
+  <ion-card color='dark' text-left nopadding>
+    <ion-card-header (click)="loadWifiVideo()" nopadding>
+      * Wifi Help
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showWifiVideo">
+      <iframe #iframeWifiVideo width="100%" height="265" [src]="trustedWifiVideoUrl ? trustedWifiVideoUrl : null" (load)="trustedWifiVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+    </div>
+    </ion-card-content>
+  </ion-card>      
+  <ion-card color='dark' text-left nopadding>
+    <ion-card-header (click)="loadAccountDeletion()" nopadding>
+      * Account Deletion
+    </ion-card-header>
+    <ion-card-content>
+    <div *ngIf="showAccountDeletion">
+      To delete your account visit https://simplesensor.io/pages/contact-us and fill out the contact for to request a removal of your account and all associated information and devices.  
+    </div>
+    </ion-card-content>
+  </ion-card>  
+   <ion-row>
+     <ion-col width-100 style="text-align: center">
+      <button ion-button round outline color='secondary' (click)="openStations()" [disabled]="!auth.isUserSignedIn()">Back</button>
+     </ion-col>
+   </ion-row>    
+</ion-content>

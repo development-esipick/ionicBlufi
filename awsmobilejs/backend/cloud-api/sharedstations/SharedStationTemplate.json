@@ -1,0 +1,8 @@
+{
+  "Template": {
+    "TemplateName": "SharedStation",
+    "SubjectPart": "SimpleSensor Shared With You!",
+    "HtmlPart": "<h1>Hello,</h1><p>A friend of yours ({{friend}}) has shared their SimpleSensor location with you! If you haven't already, download and install the SimpleSensor app from Apple or Google app store using the links below. Once registered, the shared location will automatically appear!</p><p>-Your friends at SimpleSensor</p>",
+    "TextPart": "Hello,\r\nA friend of yours ({{friend}}) has shared their SimpleSensor location with you! If you haven't already, download and install the SimpleSensor app from Apple or Google app store using the links below. Once registered, the shared location will automatically appear!\r\n-Your friends at SimpleSensor"
+  }
+}

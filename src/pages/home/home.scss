@@ -1,0 +1,71 @@
+page-home {
+  .card-title {
+    // font-weight: bold;
+    // background-color: color($colors, light);
+    // border-bottom: 1px solid #ccc;
+    // margin-bottom: 10px;
+    // border-top: 10px solid color($colors, primary);
+  }
+  .card-stats {
+    // background-color: color($colors, light);
+    // border: 1px solid #ccc;
+  }
+
+  .content-home {
+    background-color: #333;
+
+    .ion-card {
+      position: relative;
+      text-align: center;
+      background-color: #333;
+      background-image: "../../assets/img/logo-light.png";
+    }
+
+    .ion-row {
+      background-color: #333;
+
+      .ion-col {
+        font-size: 36px;
+      }      
+    }    
+  
+  }
+
+  .home_content {
+    color: #FFFFFF;
+  }
+
+  .home__welcome { 
+      padding-top: 50px;
+      padding-bottom: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 265px;
+      background-image: url("../../assets/img/logo-light.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .home__welcome-message-top {
+      font-size: 18px;
+  }
+
+  .home__welcome-message-bottom {
+      font-size: 36px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-image: url("../../assets/img/logo-light.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .sign-in__controls {
+      text-align: center;
+      max-width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+}

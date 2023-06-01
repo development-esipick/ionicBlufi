@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear *ngIf="auth.isUserSignedIn()" (click)="openModal()"  [color]="userColor">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding>
+
+  <div [ngSwitch]="page">
+    <div *ngSwitchCase="'login'">
+
+        <ion-card *ngIf="message" color='secondary'>
+          <ion-card-content>
+            {{message}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="error" color='danger'>
+          <ion-card-content>
+            {{error}}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class='ion-card'>
+          <ion-card-content>
+            Logging you in via Facebook...
+          </ion-card-content>
+        </ion-card>
+
+      <ion-row padding>
+        <ion-col text-center>
+          <button ion-button small (click)="showRegistration()">Register a New Account</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button small (click)="showConfirmation()">Confirm Registration</button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>About SimpleSensor
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding>
+  <ion-card text-center>
+    <ion-card-content class="black-background">
+      SimpleSensor is a device and app that helps you secure and protect your home or office. Visit https://simplesensor.io to view more helpful tips and videos.
+    </ion-card-content>
+  </ion-card>      
+  <ion-list nolines>
+    <div *ngFor="let attr of attrs">
+      <ion-item *ngIf="(attr.getName() == 'email' || attr.getName() == 'preferred_username' || attr.getName() == 'custom:cognito_identity_id')" color='dark' nolines>          
+        <p>{{attr.getName().startsWith('custom:cognito') ? 'id' : attr.getName()}}: {{attr.getValue()}}</p>
+      </ion-item>
+    </div>
+    <ion-item color='dark' nolines>
+      <p>App Version: {{appVersionNumber}}</p>
+    </ion-item>    
+  </ion-list>
+   <ion-row>
+     <ion-col width-100 style="text-align: center">
+      <button ion-button round outline color='secondary' (click)="openStations()" [disabled]="!auth.isUserSignedIn()">Back</button>
+     </ion-col>
+   </ion-row>    
+</ion-content>

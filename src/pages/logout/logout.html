@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="openModal()"  [color]="userColor">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='content-home' padding>
+<ion-list>
+  <ion-item *ngFor="let attr of attrs">
+    <h2>{{attr.getName()}}</h2>
+    <p>{{attr.getValue()}}</p>
+  </ion-item>
+</ion-list>
+  <button ion-button full (click)="signout()" color='danger'>
+    Sign Out
+  </button>
+</ion-content>

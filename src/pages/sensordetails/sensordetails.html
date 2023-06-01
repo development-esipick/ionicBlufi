@@ -1,0 +1,256 @@
+<ion-header>
+  <ion-navbar color="darkbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>SimpleSensor - {{sensor.name}}
+    </ion-title>
+    <ion-buttons *ngIf="!this.isShared" end>
+      <button ion-button icon-only clear (click)="openEditSensor()"  [color]="userColor">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class='content-home'>
+  <ion-card nopadding class='content-home'>
+    <!-- <ion-card-content text-center class='header-status'>{{sensor.sensorStatus}}</ion-card-content> -->
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-left class='detail-text-update-date'>Data Received: {{getUpdateDate(sensor.updatedOn)}}</ion-col>    
+        <ion-col col-6 text-right class='detail-text'>
+          <div *ngIf="(sensor.batteryLevel > 22)">
+            Battery: <ion-icon name="battery-full"></ion-icon> {{sensor.batteryLevel}}%
+          </div>  
+          <div *ngIf="(sensor.batteryLevel <= 22)" class='warning-text'>
+            Battery: <ion-icon name="battery-dead"></ion-icon> {{sensor.batteryLevel}}%
+          </div>            
+        </ion-col>
+      </ion-row>    
+    </ion-grid>  
+  </ion-card>
+
+  <div [ngSwitch]="infoView">
+    <div [hidden]="infoView == 'charts' || infoView == 'notifications' || infoView == 'history'" align="center">
+      <ion-toolbar color='dark' class="short-toolbar" nopadding>
+        <ion-buttons nopadding left class="short-button-bar">
+          <button ion-button icon-only clear (click)="openCommunity()"  color="white">
+            <ion-icon name="chatboxes"></ion-icon>
+          </button>    
+        </ion-buttons>    
+        <ion-buttons *ngIf="!this.isShared" nopadding end class="short-button-bar">
+          <button ion-button icon-only clear (click)="openEditSensorAlerts()"  color="white">
+            <ion-icon name="notifications"></ion-icon>
+          </button>    
+        </ion-buttons>             
+      </ion-toolbar>
+      <ion-card *ngIf="sensorError" color='danger'>
+        <ion-card-content>
+          {{sensorError}}
+        </ion-card-content>
+      </ion-card>      
+      <ion-card *ngIf="waterDetected" color='humidity'>
+        <ion-card-content style="font-size: 2.0em;">
+          <ion-icon name="water"></ion-icon> WATER DETECTED!
+        </ion-card-content>
+      </ion-card>       
+      <ion-card no-padding class='content-home'>
+        <ion-card-content nopadding text-center class='sensortype-card-content-md'>
+          <ion-img style="width: 260px; height: 260px;" src="assets/img/sensorTypes/{{lowerCase(sensor.sensorType)}}_{{lowerCase(sensorState)}}.gif"></ion-img>
+        </ion-card-content>    
+        <ion-grid no-padding>
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-label class='header-status'>{{helperText}}</ion-label>
+            </ion-col>
+          </ion-row>        
+          <ion-row nopadding>
+            <ion-col col-6>
+              <button ion-fab size="large" color="temp" (click)="setTempHelper()">{{sensor.lastTemperature}}&deg;</button>    
+            </ion-col>
+            <ion-col col-6>
+              <button ion-fab size="large" color="humidity" (click)="setHumidityHelper()">{{sensor.lastHumidity}}%</button>
+            </ion-col>
+          </ion-row>
+          <!-- 
+          <ion-row nopadding>
+            <ion-col col-3>
+            </ion-col>
+            <ion-col col-3>
+              <button ion-fab color="lux" (click)="setLuxHelper()">{{sensor.lastLux}}</button>
+            </ion-col>
+            <ion-col col-3>
+              <button ion-fab color="secondary" (click)="setUpdateHelper()">{{secondsSinceLastUpdate}}s</button>
+            </ion-col>
+            <ion-col col-3>
+            </ion-col>
+          </ion-row>
+        -->
+        </ion-grid>
+      </ion-card>     
+      <ion-buttons nopadding end class="short-button-bar">
+        <button ion-button icon-only clear (click)="openSensorDetailsVideo()"  color="white">
+          <ion-icon name="help"></ion-icon>
+        </button>    
+      </ion-buttons>   
+      <div *ngIf="showSensorDetailsVideo">
+        <iframe #iframeVideo width="100%" height="265" [src]="trustedSensorDetailsVideoUrl ? trustedSensorDetailsVideoUrl : null" (load)="trustedSensorDetailsVideoUrl ? handleIFrameLoadEvent() : null" frameborder="0" allowfullscreen></iframe>    
+      </div>           
+    </div>
+
+    <div *ngSwitchCase="'charts'" align="center">
+
+      <ion-card class='content-home' padding>
+
+        <ion-card-content>
+          <canvas *ngIf="temperatureChartData" baseChart #tempChart height="180px"
+            [datasets]="temperatureChartData"
+            [labels]="temperatureChartLabels"
+            [options]="temperatureChartOptions"
+            [legend]="temperatureChartLegend"
+            [chartType]="temperatureChartType"></canvas>
+        </ion-card-content>
+
+
+        <ion-row no-padding class='card-stats'>
+        </ion-row>
+      </ion-card>
+
+      <ion-card class='content-home' padding>
+
+        <ion-card-content>
+          <canvas *ngIf="humidityChartData" baseChart #humidityChart height="180px"
+            [datasets]="humidityChartData"
+            [labels]="humidityChartLabels"
+            [options]="humidityChartOptions"
+            [colors]="lineChartColors"
+            [legend]="humidityChartLegend"
+            [chartType]="humidityChartType"></canvas>
+        </ion-card-content>
+
+
+        <ion-row no-padding class='card-stats'>
+        </ion-row>
+      </ion-card>         
+
+    </div>
+    <div *ngSwitchCase="'notifications'">
+      <ion-list padding>
+          <ng-container *ngFor="let sensorEvent of sensorEventStore.sensorevents | async; let idx = index" >
+            <ion-item>              
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>{{getUpdateDate(sensorEvent.eventDateTime)}}</ion-col>
+                  <ion-col col-4></ion-col>
+                  <ion-col col-4 text-right>{{sensorEvent.eventKeyword}}</ion-col>
+                </ion-row>
+              </ion-grid>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </div>
+    <div class="sensor-data-compare" *ngSwitchCase="'energy'">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="assets/img/world.png"></ion-col>
+            <ion-col>
+              <div class='compare-text'>Compare - Coming Soon</div>
+              <div>See how your usage of this sensor type compares with other users.</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>  
+    <div *ngSwitchCase="'history'">
+      <ion-segment [(ngModel)]="timeLength" color="secondary" (ionChange)="footerSegmentChanged($event)">
+        <ion-segment-button value="1d">
+          1d
+        </ion-segment-button>
+        <ion-segment-button value="1w">
+          1w
+        </ion-segment-button>
+        <ion-segment-button value="1m">
+          1m
+        </ion-segment-button>        
+        <ion-segment-button value="3m">
+          3m
+        </ion-segment-button>        
+        <ion-segment-button value="6m">
+          6m
+        </ion-segment-button>                
+        <ion-segment-button value="1y">
+          1y
+        </ion-segment-button>                
+      </ion-segment>
+      <div *ngIf="!userSettings.hasSubscription && timeLength != '1d' && timeLength != '1w'" color="light">
+        <h1 text-center class="xxl soft"><ion-icon name="lock"></ion-icon></h1>
+        <h3 text-center class="soft">SimpleSensor subscriptions coming soon to save and view data over longer time periods.</h3>
+        <!-- 
+        <ion-row>
+         <ion-col width-100 style="text-align: center">
+          <button ion-button round outline color='secondary' (click)="openSubscriptions()">Go To Subscriptions</button>
+         </ion-col>
+        </ion-row>          
+      -->
+      </div>
+
+      <div *ngIf="userSettings.hasSubscription || timeLength == '1d' || timeLength == '1w'">
+        <ion-card class='content-home' padding>
+
+          <ion-card-content>
+            <canvas *ngIf="historyTempChartData" baseChart #historyTempChart height="180px"
+              [datasets]="historyTempChartData"
+              [labels]="historyTempChartLabels"
+              [options]="historyTempChartOptions"
+              [legend]="historyTempChartLegend"
+              [chartType]="historyTempChartType"></canvas>
+          </ion-card-content>
+
+
+          <ion-row no-padding class='card-stats'>
+          </ion-row>
+        </ion-card>
+
+        <ion-card class='content-home' padding>
+
+          <ion-card-content>
+            <canvas *ngIf="historyHumidityChartData" baseChart #historyHumidityChart height="180px"
+              [datasets]="historyHumidityChartData"
+              [labels]="historyHumidityChartLabels"
+              [options]="historyHumidityChartOptions"
+              [colors]="lineChartColors"
+              [legend]="historyHumidityChartLegend"
+              [chartType]="historyHumidityChartType"></canvas>
+          </ion-card-content>
+
+
+          <ion-row no-padding class='card-stats'>
+          </ion-row>
+        </ion-card>          
+      </div>
+    </div>          
+  </div>    
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="darkbar">
+    <ion-segment [(ngModel)]="infoView" color="secondary" (ionChange)="footerSegmentChanged($event)">
+      <ion-segment-button value="details">
+        <ion-icon name="home"></ion-icon>Details
+      </ion-segment-button>      
+      <ion-segment-button value="charts">
+        <ion-icon name="pulse"></ion-icon>Charts
+      </ion-segment-button>
+      <ion-segment-button value="notifications">Events
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="history">History
+        <ion-icon name="stats"></ion-icon>
+      </ion-segment-button>      
+      <!--<ion-segment-button value="energy">Energy
+        <ion-icon name="globe"></ion-icon>
+      </ion-segment-button>      -->
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

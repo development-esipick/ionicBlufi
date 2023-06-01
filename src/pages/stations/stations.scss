@@ -1,0 +1,41 @@
+page-stations {
+
+  .danger-text {
+    color: color($colors, danger)
+  }
+
+  .ok-text {
+    color: color($colors, primary)
+  }
+
+  .item-md {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .item-ios {
+    background-color: #333;
+    color: #ffffff;
+  }
+  
+  .card-background-page {
+    background-color: #333;
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }  
+  }
+}

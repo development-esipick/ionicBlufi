@@ -1,0 +1,11 @@
+<ion-content class="content-home">
+	 
+  <div *ngIf="(this.platform.is('iphone') || this.platform.is('android'))">
+    <ion-img style="width: 780px; height: 780px;" src="assets/img/splash/splash800x800.gif"></ion-img>
+  </div>
+
+  <div *ngIf="(!this.platform.is('iphone') && !this.platform.is('android'))">
+    <ion-img style="width: 780px; height: 780px;" src="assets/img/splash/splash800x800.gif"></ion-img>
+  </div>     
+ 
+</ion-content>
